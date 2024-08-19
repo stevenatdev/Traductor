@@ -27,19 +27,23 @@ Sigue estos pasos para clonar y ejecutar el proyecto localmente:
    ```bash
    git clone https://github.com/tuusuario/tu-repositorio.git
    
-## Navegar al Directorio del Proyecto:
+2. **Navegar al Directorio del Proyecto:**
 
+```bash
 cd tu-repositorio
 
-## Instalar Dependencias:
+3. **Instalar Dependencias:**
 
 Asegúrate de tener Node.js instalado. Luego, ejecuta:
 
+```bash
 npm install
 
-## Ejecutar la Aplicación:
+4. **Ejecutar la Aplicación:**
 
+```bash
 ionic serve
+
 Esto iniciará un servidor de desarrollo y abrirá la aplicación en tu navegador.
 
 ## Uso
