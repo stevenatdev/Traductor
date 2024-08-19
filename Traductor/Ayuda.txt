@@ -1,0 +1,23 @@
+Instalación de Tailwind en ionic Angular
+
+Step 1: Install ngx-tailwind
+The package ngx-tailwind@4.0.0 will be installed and executed.
+Would you like to proceed? Yes
+✔ Packages successfully installed.
+? Which stylesheet format are you using? SCSS [ https://sass-lang.com/documentation/syntax#scss ]
+? Which @tailwindcss plugins do you want to install? typography
+CREATE tailwind.config.js (150 bytes)
+UPDATE package.json (2179 bytes)
+UPDATE src/theme/variables.scss (7145 bytes)
+✔ Packages installed successfully.
+
+Step 2: Update Variables and Global CSS Files
+In your variables.scss, remove the following lines:
+@import 'tailwindcss/base'
+@import 'tailwindcss/components'
+@import 'tailwindcss/utilities'
+
+In your global.scss, add the following lines:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
