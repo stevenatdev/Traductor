@@ -86,5 +86,5 @@ Abre un Pull Request en el repositorio original y describe los cambios realizado
 ## Contacto
 Para cualquier consulta o soporte, puedes contactar a:
 
-**Nombre del Autor:** stevenatdev
-**GitHub:** https://github.com/stevenatdev
+- **Nombre del Autor:** stevenatdev
+- **GitHub:** https://github.com/stevenatdev
