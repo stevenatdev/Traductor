@@ -29,29 +29,28 @@ Sigue estos pasos para clonar y ejecutar el proyecto localmente:
    
 2. **Navegar al Directorio del Proyecto:**
 
-```bash
-cd tu-repositorio
+   ```bash
+   cd tu-repositorio
 
 3. **Instalar Dependencias:**
 
 Asegúrate de tener Node.js instalado. Luego, ejecuta:
 
-```bash
-npm install
+      npm install
 
 4. **Ejecutar la Aplicación:**
 
-```bash
-ionic serve
+   ```bash
+   ionic serve
 
 Esto iniciará un servidor de desarrollo y abrirá la aplicación en tu navegador.
 
 ## Uso
-Abrir la Aplicación:
+**Abrir la Aplicación:**
 
 Una vez que la aplicación esté en funcionamiento, abre tu navegador y navega a http://localhost:8100.
 
-## Traducción:
+**Traducción:**
 
 Ingresa el texto en Shuar que deseas traducir al español o viceversa.
 Consulta la traducción proporcionada y realiza ejercicios prácticos para mejorar tus habilidades en español.
@@ -63,26 +62,29 @@ Explora los materiales educativos y utiliza las herramientas disponibles para ap
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas contribuir al proyecto, por favor sigue estos pasos:
-Fork el Repositorio
-Crea una Rama para tu Funcionalidad:
+1. **Fork el Repositorio**
+2. **Crea una Rama para tu Funcionalidad:**
 
-git checkout -b feature/mi-nueva-funcionalidad
+   ```bash
+   git checkout -b feature/mi-nueva-funcionalidad
 
-## Realiza los Cambios y Commits:
+3. **Realiza los Cambios y Commits:**
 
-git add .
-git commit -m "Añadido nueva funcionalidad"
+   ```bash
+   git add .
+   git commit -m "Añadido nueva funcionalidad"
 
-## Push a tu Rama:
+4. **Push a tu Rama:**
 
-git push origin feature/mi-nueva-funcionalidad
+   ```bash
+   git push origin feature/mi-nueva-funcionalidad
 
-## Crea un Pull Request:
+5. **Crea un Pull Request:**
 
 Abre un Pull Request en el repositorio original y describe los cambios realizados.
 
 ## Contacto
 Para cualquier consulta o soporte, puedes contactar a:
 
-Nombre del Autor: [stevenatdev]
-GitHub: https://github.com/stevenatdev
+**Nombre del Autor:** stevenatdev
+**GitHub:** https://github.com/stevenatdev
