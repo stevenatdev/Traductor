@@ -14,7 +14,7 @@ import { TranslationService } from '../service/translation.service';
 })
 export class HomePage implements OnInit {
   fromLanguage: string = 'shuar'; // Idioma de origen por defecto
-  textToTranslate: string = '';
+  // textToTranslate: string = '';
   translation: string = '';
 
   // FormControl para manejar el input

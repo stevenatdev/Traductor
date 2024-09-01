@@ -10,10 +10,10 @@
 <ion-content class="ion-padding">
     <section>
         <div class="mt-20">
-            <div class="flex flex-col gap-4 text-center">
+            <div class="ion-text-center">
                 <div>
-                    <h1 class="text-3xl font-bold pb-2">Aprende Español con Shuar</h1>
-                    <h2 class="text-xl font-semibold">Traducción Bidireccional</h2>
+                    <ion-title class="text-3xl font-bold pb-2">Aprende Español con Shuar</ion-title>
+                    <ion-label class="text-xl font-semibold">Traducción Bidireccional</ion-label>
                 </div>
                 <p class="text-lg">
                     Bienvenido a nuestra aplicación diseñada para ayudar a los hablantes de Shuar a aprender español.
@@ -21,8 +21,8 @@
                     aprendizaje y la comunicación en tu día a día.
                 </p>
             </div>
-            <figure class="mt-10 text-center">
-                <img class="w-32 mx-auto" src="assets/icon/favicon.png" alt="Imagen del traductor" />
+            <figure class="mt-10 ion-text-center">
+                <ion-img class="w-32 mx-auto" src="assets/icon/favicon.png" alt="Imagen del traductor"></ion-img>
             </figure>
         </div>
     </section>
@@ -30,24 +30,25 @@
     <!-- Traductor -->
     <section class="mt-20">
         <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
-            <h1 class="text-2xl font-bold mb-4 text-center">Traductor Bidireccional en Tiempo Real</h1>
-            <p class="text-center mb-6 text-gray-600">Introduce el texto en uno de los idiomas para ver la traducción
+            <ion-title class="text-2xl font-bold mb-4 ion-text-center">Traductor Bidireccional en Tiempo
+                Real</ion-title>
+            <p class="ion-text-center mb-6 text-gray-600">Introduce el texto en uno de los idiomas para ver la
+                traducción
                 instantánea.</p>
 
-            <div class="form-group mb-6">
-                <label for="fromLanguage" class="block text-sm font-medium text-gray-700">Idioma de origen:</label>
-                <select id="fromLanguage" [(ngModel)]="fromLanguage" (change)="toggleLanguage()"
-                    class="form-control mt-1 block w-full p-3 border rounded-lg shadow-sm">
-                    <option value="shuar">Shuar</option>
-                    <option value="espanol">Español</option>
-                </select>
-            </div>
+            <ion-item class="mb-6">
+                <ion-label position="floating">Idioma de origen:</ion-label>
+                <ion-select id="fromLanguage" [(ngModel)]="fromLanguage" (change)="toggleLanguage()">
+                    <ion-select-option value="shuar">Shuar</ion-select-option>
+                    <ion-select-option value="espanol">Español</ion-select-option>
+                </ion-select>
+            </ion-item>
 
             <div class="form-group mb-6">
                 <label for="textToTranslate" class="block text-sm font-medium text-gray-700">Texto a traducir:</label>
-                <input id="textToTranslate" [formControl]="textControl"
+                <textarea id="textToTranslate" [formControl]="textControl" w
                     class="form-control mt-1 block w-full p-3 border rounded-lg shadow-sm"
-                    placeholder="Escribe aquí..." />
+                    placeholder="Escribe aquí..."></textarea>
             </div>
 
             @if (translation) {
@@ -61,39 +62,50 @@
 
     <!-- Información adicional -->
     <section>
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-                <h3 class="text-lg font-bold mb-2">Aprenderás</h3>
-                <p class="text-gray-700">
-                    Nuestra aplicación está especialmente diseñada para hablantes de Shuar que desean aprender español.
-                    A través de traducciones precisas y ejercicios prácticos, te ayudaremos a mejorar tu habilidad en el
-                    español.
-                </p>
-            </div>
-            <div>
-                <h3 class="text-lg font-bold mb-2">Te Ayudamos</h3>
-                <p class="text-gray-700">
-                    Ofrecemos una interfaz amigable y recursos educativos para facilitar tu aprendizaje del español.
-                    Además, tendrás acceso a soporte y consejos personalizados para resolver cualquier dificultad que
-                    encuentres en el proceso.
-                </p>
-            </div>
+        <div class="mt-20 ion-grid">
+            <ion-row>
+                <ion-col size="12" size-md="6">
+                    <ion-title class="text-lg font-bold mb-2">Aprenderás</ion-title>
+                    <p class="text-gray-700">
+                        Nuestra aplicación está especialmente diseñada para hablantes de Shuar que desean aprender
+                        español.
+                        A través de traducciones precisas y ejercicios prácticos, te ayudaremos a mejorar tu habilidad
+                        en el
+                        español.
+                    </p>
+                </ion-col>
+                <ion-col size="12" size-md="6">
+                    <ion-title class="text-lg font-bold mb-2">Te Ayudamos</ion-title>
+                    <p class="text-gray-700">
+                        Ofrecemos una interfaz amigable y recursos educativos para facilitar tu aprendizaje del español.
+                        Además, tendrás acceso a soporte y consejos personalizados para resolver cualquier dificultad
+                        que
+                        encuentres en el proceso.
+                    </p>
+                </ion-col>
+            </ion-row>
         </div>
     </section>
 
     <section>
-        <div class="mt-20 flex flex-col md:flex-row items-center justify-center gap-6">
-            <div class="w-full md:w-2/3">
-                <h3 class="text-xl font-bold mb-2">Shuar / Español</h3>
-                <p class="text-gray-700">
-                    La aplicación ofrece una traducción bidireccional que permite a los hablantes de Shuar aprender y
-                    practicar español de manera efectiva. Simplificamos el proceso de aprendizaje con herramientas
-                    diseñadas para mejorar tu fluidez y comprensión del idioma.
-                </p>
-            </div>
-            <figure>
-                <img class="w-32 mx-auto" src="assets/icon/favicon.png" alt="Imagen de traducción" />
-            </figure>
+        <div class="mt-20 ion-text-center">
+            <ion-row class="ion-justify-content-center">
+                <ion-col size="12" size-md="8">
+                    <ion-title class="text-xl font-bold mb-2">Shuar / Español</ion-title>
+                    <p class="text-gray-700">
+                        La aplicación ofrece una traducción bidireccional que permite a los hablantes de Shuar aprender
+                        y
+                        practicar español de manera efectiva. Simplificamos el proceso de aprendizaje con herramientas
+                        diseñadas para mejorar tu fluidez y comprensión del idioma.
+                    </p>
+                </ion-col>
+                <ion-col size="12" size-md="4">
+                    <figure>
+                        <ion-img class="w-32 mx-auto" src="assets/icon/favicon.png"
+                            alt="Imagen de traducción"></ion-img>
+                    </figure>
+                </ion-col>
+            </ion-row>
         </div>
     </section>
 </ion-content>
