@@ -15,8 +15,8 @@ La aplicación **Traductor Bidireccional Shuar-Español** está diseñada para a
 
 - **Frontend:** Ionic Framework
 - **Lenguaje de Programación:** TypeScript, HTML, CSS
-- **Backend:** (Especificar si tienes un backend, por ejemplo, Node.js, etc.)
-- **Base de Datos:** (Especificar si utilizas una base de datos, por ejemplo, Firebase, MongoDB, etc.)
+- **Backend:** Node.js
+- **Base de Datos:** MySQL WorkBench
 
 ## Instalación
 
@@ -26,26 +26,35 @@ Sigue estos pasos para clonar y ejecutar el proyecto localmente:
 
    ```bash
    git clone https://github.com/tuusuario/tu-repositorio.git
-   
+
+   ```
+
 2. **Navegar al Directorio del Proyecto:**
 
    ```bash
    cd tu-repositorio
 
+   ```
+
 3. **Instalar Dependencias:**
 
-Asegúrate de tener Node.js instalado. Luego, ejecuta:
+- Asegúrate de tener Node.js instalado. Luego, ejecuta:
 
-      npm install
+  ```bash
+  npm install
+  ```
 
 4. **Ejecutar la Aplicación:**
 
    ```bash
    ionic serve
 
+   ```
+
 Esto iniciará un servidor de desarrollo y abrirá la aplicación en tu navegador.
 
 ## Uso
+
 **Abrir la Aplicación:**
 
 Una vez que la aplicación esté en funcionamiento, abre tu navegador y navega a http://localhost:8100.
@@ -62,11 +71,14 @@ Explora los materiales educativos y utiliza las herramientas disponibles para ap
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas contribuir al proyecto, por favor sigue estos pasos:
+
 1. **Fork el Repositorio**
 2. **Crea una Rama para tu Funcionalidad:**
 
    ```bash
    git checkout -b feature/mi-nueva-funcionalidad
+
+   ```
 
 3. **Realiza los Cambios y Commits:**
 
@@ -74,16 +86,21 @@ Las contribuciones son bienvenidas. Si deseas contribuir al proyecto, por favor 
    git add .
    git commit -m "Añadido nueva funcionalidad"
 
+   ```
+
 4. **Push a tu Rama:**
 
    ```bash
    git push origin feature/mi-nueva-funcionalidad
+
+   ```
 
 5. **Crea un Pull Request:**
 
 Abre un Pull Request en el repositorio original y describe los cambios realizados.
 
 ## Contacto
+
 Para cualquier consulta o soporte, puedes contactar a:
 
 - **Nombre del Autor:** stevenatdev
