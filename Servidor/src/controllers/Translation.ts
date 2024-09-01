@@ -4,6 +4,7 @@ import Translation from '../models/translation';
 const ControllerTranslation = {
     getTranslation: async (req: Request, res: Response) => {
         const { text, from } = req.body;
+        console.log('Buscando traducción para:', text, 'desde el idioma:', from);
 
         try {
             let translation;

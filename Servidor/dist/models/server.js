@@ -17,6 +17,7 @@ const users_1 = __importDefault(require("./users"));
 const users_2 = __importDefault(require("../routes/users"));
 const translation_1 = __importDefault(require("./translation"));
 const translation_2 = __importDefault(require("../routes/translation"));
+const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -42,15 +43,17 @@ class Server {
             }
         });
     }
-    // Middleware
-    middleware() {
-        // Parsear el body de las peticiones
-        this.app.use(express_1.default.json());
-    }
     // Rutas
     routes() {
         this.app.use('/api/users', users_2.default);
         this.app.use('/api/translation', translation_2.default);
+    }
+    // Middleware
+    middleware() {
+        // Parsear el body de las peticiones
+        this.app.use(express_1.default.json());
+        // Cors
+        this.app.use((0, cors_1.default)());
     }
 }
 exports.default = Server;

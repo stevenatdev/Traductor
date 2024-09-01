@@ -12,46 +12,87 @@
         <div class="mt-20">
             <div class="flex flex-col gap-4 text-center">
                 <div>
-                    <h1 class="text-3xl pb-2">Aprende Español con Shuar</h1>
-                    <h2 class="text-xl">Traducción Bidireccional</h2>
+                    <h1 class="text-3xl font-bold pb-2">Aprende Español con Shuar</h1>
+                    <h2 class="text-xl font-semibold">Traducción Bidireccional</h2>
                 </div>
-                <p>
+                <p class="text-lg">
                     Bienvenido a nuestra aplicación diseñada para ayudar a los hablantes de Shuar a aprender español.
                     Con nuestra herramienta, podrás traducir fácilmente entre Shuar y español, facilitando el
                     aprendizaje y la comunicación en tu día a día.
                 </p>
             </div>
-            <figure class="mt-10">
-                <img class="w-40 mx-auto" src="assets/icon/favicon.png" alt="Imagen del traductor" />
+            <figure class="mt-10 text-center">
+                <img class="w-32 mx-auto" src="assets/icon/favicon.png" alt="Imagen del traductor" />
             </figure>
         </div>
     </section>
+
+    <!-- Traductor -->
+    <section class="mt-20">
+        <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
+            <h1 class="text-2xl font-bold mb-4 text-center">Traductor Bidireccional en Tiempo Real</h1>
+            <p class="text-center mb-6 text-gray-600">Introduce el texto en uno de los idiomas para ver la traducción
+                instantánea.</p>
+
+            <div class="form-group mb-6">
+                <label for="fromLanguage" class="block text-sm font-medium text-gray-700">Idioma de origen:</label>
+                <select id="fromLanguage" [(ngModel)]="fromLanguage" (change)="toggleLanguage()"
+                    class="form-control mt-1 block w-full p-3 border rounded-lg shadow-sm">
+                    <option value="shuar">Shuar</option>
+                    <option value="espanol">Español</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-6">
+                <label for="textToTranslate" class="block text-sm font-medium text-gray-700">Texto a traducir:</label>
+                <input id="textToTranslate" [formControl]="textControl"
+                    class="form-control mt-1 block w-full p-3 border rounded-lg shadow-sm"
+                    placeholder="Escribe aquí..." />
+            </div>
+
+            @if (translation) {
+            <div class="mt-6 p-4 border border-gray-200 rounded-lg bg-gray-50">
+                <h2 class="text-lg font-semibold mb-2">Traducción:</h2>
+                <p>{{ translation }}</p>
+            </div>
+            }
+        </div>
+    </section>
+
+    <!-- Información adicional -->
     <section>
-        <div class="mt-20 grid grid-cols-2 gap-4">
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-                <h3 class="text-base font-bold">Aprenderás</h3>
-                <p>Nuestra aplicación está especialmente diseñada para hablantes de Shuar que desean aprender español. A
-                    través de traducciones precisas y ejercicios prácticos, te ayudaremos a mejorar tu habilidad en el
-                    español.</p>
+                <h3 class="text-lg font-bold mb-2">Aprenderás</h3>
+                <p class="text-gray-700">
+                    Nuestra aplicación está especialmente diseñada para hablantes de Shuar que desean aprender español.
+                    A través de traducciones precisas y ejercicios prácticos, te ayudaremos a mejorar tu habilidad en el
+                    español.
+                </p>
             </div>
             <div>
-                <h3 class="text-base font-bold">Te Ayudamos</h3>
-                <p>Ofrecemos una interfaz amigable y recursos educativos para facilitar tu aprendizaje del español.
+                <h3 class="text-lg font-bold mb-2">Te Ayudamos</h3>
+                <p class="text-gray-700">
+                    Ofrecemos una interfaz amigable y recursos educativos para facilitar tu aprendizaje del español.
                     Además, tendrás acceso a soporte y consejos personalizados para resolver cualquier dificultad que
-                    encuentres en el proceso.</p>
+                    encuentres en el proceso.
+                </p>
             </div>
         </div>
     </section>
+
     <section>
-        <div class="mt-20 flex gap-4">
-            <div class="w-[70%]">
-                <h3 class="text-xl font-bold">Shuar / Español</h3>
-                <p>La aplicación ofrece una traducción bidireccional que permite a los hablantes de Shuar aprender y
+        <div class="mt-20 flex flex-col md:flex-row items-center justify-center gap-6">
+            <div class="w-full md:w-2/3">
+                <h3 class="text-xl font-bold mb-2">Shuar / Español</h3>
+                <p class="text-gray-700">
+                    La aplicación ofrece una traducción bidireccional que permite a los hablantes de Shuar aprender y
                     practicar español de manera efectiva. Simplificamos el proceso de aprendizaje con herramientas
-                    diseñadas para mejorar tu fluidez y comprensión del idioma.</p>
+                    diseñadas para mejorar tu fluidez y comprensión del idioma.
+                </p>
             </div>
             <figure>
-                <img class="w-40 mx-auto" src="assets/icon/favicon.png" alt="Imagen de traducción" />
+                <img class="w-32 mx-auto" src="assets/icon/favicon.png" alt="Imagen de traducción" />
             </figure>
         </div>
     </section>

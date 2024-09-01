@@ -3,6 +3,7 @@ import Users from "./users";
 import routesUser from "../routes/users";
 import Translation from "./translation";
 import routesTranslation from "../routes/translation";
+import cors from "cors";
 
 class Server {
     private app: Application;
@@ -31,16 +32,19 @@ class Server {
         }
     }
 
-    // Middleware
-    middleware() {
-        // Parsear el body de las peticiones
-        this.app.use(express.json());
-    }
-
     // Rutas
     routes() {
         this.app.use('/api/users', routesUser);
         this.app.use('/api/translation', routesTranslation);
+    }
+
+    // Middleware
+    middleware() {
+        // Parsear el body de las peticiones
+        this.app.use(express.json());
+
+        // Cors
+        this.app.use(cors());
     }
 }
 

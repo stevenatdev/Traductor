@@ -16,6 +16,7 @@ const translation_1 = __importDefault(require("../models/translation"));
 const ControllerTranslation = {
     getTranslation: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { text, from } = req.body;
+        console.log('Buscando traducción para:', text, 'desde el idioma:', from);
         try {
             let translation;
             if (from === 'shuar') {
