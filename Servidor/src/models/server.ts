@@ -1,6 +1,8 @@
 import express, { Application } from "express";
 import Users from "./users";
 import routesUser from "../routes/users";
+import Translation from "./translation";
+import routesTranslation from "../routes/translation";
 
 class Server {
     private app: Application;
@@ -23,20 +25,22 @@ class Server {
     async dbConnection() {
         try {
             await Users.sync();
+            await Translation.sync();
         } catch (error) {
             console.log(error);
         }
-    }
-
-    // Rutas
-    routes() {
-        this.app.use('/api/users', routesUser);
     }
 
     // Middleware
     middleware() {
         // Parsear el body de las peticiones
         this.app.use(express.json());
+    }
+
+    // Rutas
+    routes() {
+        this.app.use('/api/users', routesUser);
+        this.app.use('/api/translation', routesTranslation);
     }
 }
 
