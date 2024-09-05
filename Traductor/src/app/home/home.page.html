@@ -2,31 +2,12 @@
     <ion-toolbar>
         <ion-title>Traductor</ion-title>
         <ion-buttons slot="end">
-            <ion-button color="primary" routerLink="/login">Empezar</ion-button>
+            <ion-button color="primary" routerLink="/login">Iniciar Sesión</ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-    <section>
-        <div class="mt-20">
-            <div class="ion-text-center">
-                <div>
-                    <ion-title class="text-3xl font-bold pb-2">Aprende Español con Shuar</ion-title>
-                    <ion-label class="text-xl font-semibold">Traducción Bidireccional</ion-label>
-                </div>
-                <p class="text-lg">
-                    Bienvenido a nuestra aplicación diseñada para ayudar a los hablantes de Shuar a aprender español.
-                    Con nuestra herramienta, podrás traducir fácilmente entre Shuar y español, facilitando el
-                    aprendizaje y la comunicación en tu día a día.
-                </p>
-            </div>
-            <figure class="mt-10 ion-text-center">
-                <ion-img class="w-32 mx-auto" src="assets/icon/favicon.png" alt="Imagen del traductor"></ion-img>
-            </figure>
-        </div>
-    </section>
-
     <!-- Traductor -->
     <section class="mt-20">
         <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
@@ -46,7 +27,7 @@
 
             <div class="form-group mb-6">
                 <label for="textToTranslate" class="block text-sm font-medium text-gray-700">Texto a traducir:</label>
-                <textarea id="textToTranslate" [formControl]="textControl" w
+                <textarea id="textToTranslate" [formControl]="textControl"
                     class="form-control mt-1 block w-full p-3 border rounded-lg shadow-sm"
                     placeholder="Escribe aquí..."></textarea>
             </div>
@@ -57,6 +38,25 @@
                 <p>{{ translation }}</p>
             </div>
             }
+        </div>
+    </section>
+
+    <section>
+        <div class="mt-20">
+            <div class="ion-text-center">
+                <div>
+                    <ion-title class="text-3xl font-bold pb-2">Aprende Español con Shuar</ion-title>
+                    <ion-label class="text-xl font-semibold">Traducción Bidireccional</ion-label>
+                </div>
+                <p class="text-lg">
+                    Bienvenido a nuestra aplicación diseñada para ayudar a los hablantes de Shuar a aprender español.
+                    Con nuestra herramienta, podrás traducir fácilmente entre Shuar y español, facilitando el
+                    aprendizaje y la comunicación en tu día a día.
+                </p>
+            </div>
+            <figure class="mt-10 ion-text-center">
+                <ion-img class="w-32 mx-auto" src="assets/icon/favicon.png" alt="Imagen del traductor"></ion-img>
+            </figure>
         </div>
     </section>
 

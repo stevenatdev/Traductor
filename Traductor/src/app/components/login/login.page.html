@@ -4,16 +4,17 @@
       <img class="img-login w-[150px] mx-auto" src="../../../assets/img/verificacion.png" alt="img-login">
       <h1 class="title text-center text-2xl font-bold">Iniciar Sesión</h1>
       <div class="form-floating flex flex-col gap-2">
-        <label>Correo electrónico</label>
-        <input type="email" class="form-control" placeholder="Ingrese su correo electrónico">
+        <label>Cédula</label>
+        <input type="text" class="form-control" placeholder="Ingrese su número de cédula" [(ngModel)]="cedula">
       </div>
       <div class="form-floating flex flex-col gap-2">
-        <label>Password</label>
-        <input type="password" class="form-control" placeholder="************">
+        <label>Contraseña</label>
+        <input type="password" class="form-control" placeholder="************" [(ngModel)]="password">
       </div>
-      <ion-button color="primary">Empezar</ion-button>
+      <ion-button color="primary" (click)="login()">Iniciar Sesión</ion-button>
       <p class="mt-4">¿No tienes una cuenta? <a routerLink="/signup"
           class="text-decoration-none text-blue-500 font-bold">Registrate</a></p>
+      <a routerLink="/recuperar-password" class="text-center">¿Olvidaste tu contraseña?</a>
       <a routerLink="/home" class="text-decoration-none text-center text-lg text-blue-500 font-bold">&larr; Volver al
         inicio</a>
     </div>

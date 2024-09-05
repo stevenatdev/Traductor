@@ -5,21 +5,48 @@
       <h1 class="title text-center text-2xl font-bold">Registrate</h1>
       <form class="flex flex-col gap-3">
         <div class="form-floating flex flex-col gap-2">
+          <label>Cédula</label>
+          <input type="text" class="form-control" placeholder="Ingrese su cédula" [(ngModel)]="cedula"
+            [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-floating flex flex-col gap-2">
+          <label>Nombres</label>
+          <input type="text" class="form-control" placeholder="Ingrese sus nombres" [(ngModel)]="nombre"
+            [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-floating flex flex-col gap-2">
+          <label>Apellidos</label>
+          <input type="text" class="form-control" placeholder="Ingrese sus apellidos" [(ngModel)]="apellido"
+            [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-floating flex flex-col gap-2">
           <label>Correo electrónico</label>
-          <input type="email" class="form-control" placeholder="Ingrese su correo electrónico">
+          <input type="email" class="form-control" placeholder="Ingrese su correo electrónico" [(ngModel)]="correo"
+            [ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-floating flex flex-col gap-2">
-          <label>Password</label>
-          <input type="password" class="form-control" placeholder="************">
+          <label>Teléfono</label>
+          <input type="text" class="form-control" placeholder="Ingrese su número de teléfono" [(ngModel)]="telefono"
+            [ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-floating flex flex-col gap-2">
-          <label>Confirmar Password</label>
-          <input type="password" class="form-control" placeholder="************">
+          <label>Contraseña</label>
+          <input type="password" class="form-control" placeholder="************" [(ngModel)]="password"
+            [ngModelOptions]="{standalone: true}">
         </div>
-        <ion-button color="primary">Registrarte</ion-button>
+        <div class="form-floating flex flex-col gap-2">
+          <label>Confirmar Contraseña</label>
+          <input type="password" class="form-control" placeholder="************" [(ngModel)]="confirmPassword"
+            [ngModelOptions]="{standalone: true}">
+        </div>
+        @if (password !== confirmPassword) {
+        <div class="form-floating flex flex-col gap-2">
+          <span class="text-red-500">Las contraseñas no coinciden</span>
+        </div>
+        }
+        <ion-button color="primary" (click)="registrar()">Registrarte</ion-button>
       </form>
-      <a onclick="history.back(); return false;"
-        class="text-decoration-none text-center text-lg text-blue-500 font-bold">&larr;
+      <a routerLink="/login" class="text-decoration-none text-center text-lg text-blue-500 font-bold">&larr;
         Volver</a>
     </div>
   </div>
