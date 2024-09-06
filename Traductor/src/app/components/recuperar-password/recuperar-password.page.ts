@@ -35,6 +35,8 @@ export class RecuperarPasswordPage implements OnInit {
       this._usersService.showToast('Las contraseñas no coinciden');
     } else if (this.cedula == '' || this.correo == '' || this.telefono == '' || this.password == '' || this.confirmPassword == '') {
       this._usersService.showToast('Todos los campos son obligatorios');
+    } else if (this.password.length < 8) {
+      this._usersService.showToast('La contraseña debe tener al menos 8 caracteres');
     } else {
       let datos = {
         accion: 'cambiarPassword',
@@ -46,10 +48,10 @@ export class RecuperarPasswordPage implements OnInit {
       this._usersService.postData(datos).subscribe((data: any) => {
         console.log(data);
         if (data.estado == true) {
-          this._usersService.showToast('Contraseña cambiada correctamente');
+          this._usersService.showToast(data.mensaje);
           this._navCtrl.navigateRoot(['/login']);
         } else {
-          this._usersService.showToast('Error al cambiar la contraseña');
+          this._usersService.showToast(data.mensaje);
         }
       })
     }

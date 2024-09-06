@@ -36,13 +36,12 @@ export class SignupPage implements OnInit {
   }
 
   registrar() {
-    if (this.password.length < 8) {
+    if (this.cedula == '' || this.nombre == '' || this.apellido == '' || this.correo == '' || this.telefono == '' || this.password == '' || this.confirmPassword == '') {
+      this._usersService.showToast('Todos los campos son obligatorios');
+    } else if (this.password.length < 8) {
       this._usersService.showToast('La contraseña debe tener al menos 8 caracteres');
-
     } else if (this.password != this.confirmPassword) {
       this._usersService.showToast('Las contraseñas no coinciden');
-    } else if (this.cedula == '' || this.nombre == '' || this.apellido == '' || this.correo == '' || this.telefono == '' || this.password == '' || this.confirmPassword == '') {
-      this._usersService.showToast('Todos los campos son obligatorios');
     } else {
       let datos = {
         accion: 'registrar',
