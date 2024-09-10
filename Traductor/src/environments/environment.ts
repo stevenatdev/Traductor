@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   endpoint: 'http://localhost:3001/',
-  endpointphp: 'http://localhost/ServidorTraductor/users.php'
+  endpointphp: 'http://localhost/ServidorTraductor/users.php',
+  endpointAdmin: 'http://localhost/ServidorTraductor/admin.php'
 };
 
 /*

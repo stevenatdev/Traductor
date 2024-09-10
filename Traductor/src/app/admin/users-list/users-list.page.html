@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Usuarios</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <!-- Botón para agregar un nuevo usuario -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="agregarUsuario()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!-- Tabla para listar los usuarios -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Lista de Usuarios</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              <!-- Tabla HTML tradicional para evitar deformaciones -->
+              <table class="usuarios-table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Fila por cada usuario -->
+                  <tr *ngFor="let usuario of usuarios">
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>
+                      <!-- Botones de acciones (Editar, Eliminar) -->
+                      <ion-button size="small" color="primary" (click)="editarUsuario(usuario.id)">
+                        <ion-icon slot="start" name="create"></ion-icon>
+
+                      </ion-button>
+
+                      <ion-button size="small" color="danger" (click)="eliminarUsuario(usuario.id)">
+                        <ion-icon slot="start" name="trash"></ion-icon>
+
+                      </ion-button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</div>

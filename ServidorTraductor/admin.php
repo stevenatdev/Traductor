@@ -9,11 +9,11 @@ $post = json_decode(file_get_contents('php://input'), true);
 $respuesta = '';
 
 if ($post['accion'] == 'cambiarClave') {
-    $sql = sprintf("SELECT id FROM users WHERE cedula = '%s' AND correo = '%s'", $post['cedula'], $post['correo']);
+    $sql = sprintf("SELECT id FROM admin WHERE cedula = '%s' AND correo = '%s'", $post['cedula'], $post['correo']);
     $result = mysqli_query($mysqli, $sql);
     $row = mysqli_fetch_assoc($result);
     if ($row['id']) {
-        $sql = sprintf("UPDATE users SET password = '%s' WHERE id = '%s'", $post['password'], $row['id']);
+        $sql = sprintf("UPDATE admin SET password = '%s' WHERE id = '%s'", $post['password'], $row['id']);
         $result = mysqli_query($mysqli, $sql);
         if ($result) {
             $respuesta = json_encode(array('estado' => true, 'mensaje' => 'password cambiada correctamente'));
@@ -28,7 +28,7 @@ if ($post['accion'] == 'cambiarClave') {
 
 // Iniciar Sesión
 if ($post['accion'] == 'login') {
-    $sql = sprintf("SELECT * FROM users WHERE cedula = '%s'", $post['cedula']);
+    $sql = sprintf("SELECT * FROM admin WHERE cedula = '%s'", $post['cedula']);
     $result = mysqli_query($mysqli, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -42,7 +42,7 @@ if ($post['accion'] == 'login') {
             $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Contraseña incorrecta'));
         }
     } else {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existe una users registrada con esa cédula'));
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existe una admin registrada con esa cédula'));
     }
 
     echo $respuesta;
@@ -58,21 +58,21 @@ if ($post['accion'] == 'registrar') {
     }
 
     // Verificamos si la cédula ya existe en la base de datos
-    $consultar_cedula = sprintf("SELECT * FROM users WHERE cedula = '%s'", $post['cedula']);
+    $consultar_cedula = sprintf("SELECT * FROM admin WHERE cedula = '%s'", $post['cedula']);
     $result_cedula = mysqli_query($mysqli, $consultar_cedula);
 
     if (mysqli_num_rows($result_cedula) > 0) {
         $respuesta = json_encode(array('estado' => false, 'mensaje' => 'La cédula ya existe'));
     } else {
         // Verificamos si el correo ya existe en la base de datos
-        $consultar_correo = sprintf("SELECT * FROM users WHERE correo = '%s'", $post['correo']);
+        $consultar_correo = sprintf("SELECT * FROM admin WHERE correo = '%s'", $post['correo']);
         $result_correo = mysqli_query($mysqli, $consultar_correo);
 
         if (mysqli_num_rows($result_correo) > 0) {
             $respuesta = json_encode(array('estado' => false, 'mensaje' => 'El correo ya existe'));
         } else {
             // Verificamos si el teléfono ya existe en la base de datos
-            $consultar_telefono = sprintf("SELECT * FROM users WHERE telefono = '%s'", $post['telefono']);
+            $consultar_telefono = sprintf("SELECT * FROM admin WHERE telefono = '%s'", $post['telefono']);
             $result_telefono = mysqli_query($mysqli, $consultar_telefono);
 
             if (mysqli_num_rows($result_telefono) > 0) {
@@ -82,7 +82,7 @@ if ($post['accion'] == 'registrar') {
                 $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
 
                 $sql = sprintf(
-                    "INSERT INTO users (cedula, nombre, apellido, password, correo, telefono) VALUES ('%s','%s','%s', '%s', '%s', '%s')",
+                    "INSERT INTO admin (cedula, nombre, apellido, password, correo, telefono) VALUES ('%s','%s','%s', '%s', '%s', '%s')",
                     $post['cedula'],
                     $post['nombre'],
                     $post['apellido'],
@@ -146,7 +146,7 @@ function validarCedula($cedula)
 if ($post['accion'] == 'actualizar') {
     $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
     $sql = sprintf(
-        "UPDATE users SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s' WHERE id = '%s'",
+        "UPDATE admin SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s' WHERE id = '%s'",
         $post['cedula'],
         $post['nombre'],
         $post['apellido'],
@@ -164,7 +164,7 @@ if ($post['accion'] == 'actualizar') {
 }
 
 if ($post['accion'] == 'eliminar') {
-    $sql = sprintf("DELETE FROM users WHERE id = '%s'", $post['id']);
+    $sql = sprintf("DELETE FROM admin WHERE id = '%s'", $post['id']);
     $result = mysqli_query($mysqli, $sql);
     if ($result) {
         $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Usuario eliminado correctamente'));
@@ -176,12 +176,12 @@ if ($post['accion'] == 'eliminar') {
 
 // Recuperar Contraseñas
 if ($post['accion'] == 'cambiarPassword') {
-    $sql = sprintf("SELECT id FROM users WHERE cedula = '%s' AND correo = '%s' AND telefono = '%s'", $post['cedula'], $post['correo'], $post['telefono']);
+    $sql = sprintf("SELECT id FROM admin WHERE cedula = '%s' AND correo = '%s' AND telefono = '%s'", $post['cedula'], $post['correo'], $post['telefono']);
     $result = mysqli_query($mysqli, $sql);
     $row = mysqli_fetch_assoc($result);
     if ($row['id']) {
         $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
-        $sql = sprintf("UPDATE users SET password = '%s' WHERE id = '%s'", $password_encriptada, $row['id']);
+        $sql = sprintf("UPDATE admin SET password = '%s' WHERE id = '%s'", $password_encriptada, $row['id']);
         $result = mysqli_query($mysqli, $sql);
         if ($result) {
             $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Contraseña cambiada correctamente'));
@@ -238,7 +238,7 @@ if ($post['accion'] == 'translate') {
 
 // Incompleto seguir viendo la clase
 if ($post['accion'] == 'consultar') {
-    $sql = sprintf("SELECT * FROM users");
+    $sql = sprintf("SELECT * FROM admin");
     $result = mysqli_query($mysqli, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -249,7 +249,7 @@ if ($post['accion'] == 'consultar') {
                 'apellido' => $row['apellido']
             );
         }
-        $respuesta = json_encode(array('estado' => true, 'users' => $data));
+        $respuesta = json_encode(array('estado' => true, 'admin' => $data));
     } else {
         $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
     }
@@ -257,7 +257,7 @@ if ($post['accion'] == 'consultar') {
 }
 
 if ($post['accion'] == 'datosPersona') {
-    $sql = sprintf("SELECT * FROM users WHERE id = '%s'", $post['id']);
+    $sql = sprintf("SELECT * FROM admin WHERE id = '%s'", $post['id']);
     $result = mysqli_query($mysqli, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
