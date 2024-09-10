@@ -194,48 +194,6 @@ if ($post['accion'] == 'cambiarPassword') {
     echo $respuesta;
 }
 
-// Traductor
-if ($post['accion'] == 'translate') {
-    $text = $post['text'];
-    $from = $post['from'];
-
-    if ($from === 'shuar') {
-        // Buscar la traducción de Shuar a Español
-        $sql = sprintf("SELECT espanol FROM translations WHERE shuar = '%s'", mysqli_real_escape_string($mysqli, $text));
-        $result = mysqli_query($mysqli, $sql);
-        if ($result) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row) {
-                $respuesta = array('estado' => true, 'translation' => $row['espanol']);
-            } else {
-                $respuesta = array('estado' => false, 'mensaje' => 'No se encontró la traducción.');
-            }
-        } else {
-            $respuesta = array('estado' => false, 'mensaje' => 'Error en la consulta.');
-        }
-    } else if ($from === 'espanol') {
-        // Buscar la traducción de Español a Shuar
-        $sql = sprintf("SELECT shuar FROM translations WHERE espanol = '%s'", mysqli_real_escape_string($mysqli, $text));
-        $result = mysqli_query($mysqli, $sql);
-        if ($result) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row) {
-                $respuesta = array('estado' => true, 'translation' => $row['shuar']);
-            } else {
-                $respuesta = array('estado' => false, 'mensaje' => 'No se encontró la traducción.');
-            }
-        } else {
-            $respuesta = array('estado' => false, 'mensaje' => 'Error en la consulta.');
-        }
-    } else {
-        $respuesta = array('estado' => false, 'mensaje' => 'Idioma no válido.');
-    }
-
-    echo json_encode($respuesta);
-} else {
-    echo json_encode(array('estado' => false, 'mensaje' => 'Acción no válida.'));
-}
-
 // Incompleto seguir viendo la clase
 if ($post['accion'] == 'consultar') {
     $sql = sprintf("SELECT * FROM admin");
