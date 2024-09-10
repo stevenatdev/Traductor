@@ -8,24 +8,6 @@ header('ContentType:application/json; charset=utf-8');
 $post = json_decode(file_get_contents('php://input'), true);
 $respuesta = '';
 
-if ($post['accion'] == 'cambiarClave') {
-    $sql = sprintf("SELECT id FROM users WHERE cedula = '%s' AND correo = '%s'", $post['cedula'], $post['correo']);
-    $result = mysqli_query($mysqli, $sql);
-    $row = mysqli_fetch_assoc($result);
-    if ($row['id']) {
-        $sql = sprintf("UPDATE users SET password = '%s' WHERE id = '%s'", $post['password'], $row['id']);
-        $result = mysqli_query($mysqli, $sql);
-        if ($result) {
-            $respuesta = json_encode(array('estado' => true, 'mensaje' => 'password cambiada correctamente'));
-        } else {
-            $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al cambiar password'));
-        }
-    } else {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
-    }
-    echo $respuesta;
-}
-
 // Iniciar Sesión
 if ($post['accion'] == 'login') {
     $sql = sprintf("SELECT * FROM users WHERE cedula = '%s'", $post['cedula']);
