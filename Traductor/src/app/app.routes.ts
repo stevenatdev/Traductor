@@ -30,6 +30,11 @@ export const routes: Routes = [
     path: 'traductor',
     loadComponent: () => import('./components/traductor/traductor.page').then(m => m.TraductorPage)
   },
+  {
+    path: 'lecciones',
+    loadComponent: () => import('./components/lecciones/lecciones.page').then(m => m.LeccionesPage)
+  },
+
   // Admin Routes
   {
     path: 'admin',

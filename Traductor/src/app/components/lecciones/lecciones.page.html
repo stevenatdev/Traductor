@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lecciones y Ejercicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Sección de Lecciones -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Lección 1: Introducción al Español</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Esta lección proporciona una introducción básica al idioma español, incluyendo saludos, frases comunes y
+        vocabulario esencial.</p>
+      <ion-button expand="full" (click)="verLeccion()">Ver Lección</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Lección 2: Gramática Básica</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>En esta lección se cubren los fundamentos de la gramática española, como los artículos, sustantivos y verbos
+        básicos.</p>
+      <ion-button expand="full" (click)="verLeccion()">Ver Lección</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sección de Ejercicios -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ejercicios</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label>Pregunta 1: ¿Cómo se dice 'Hola' en español?</ion-label>
+          <ion-input type="text" name="respuesta1" placeholder="Tu respuesta aquí"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Pregunta 2: ¿Cuál es el artículo definido para 'niño' en español?</ion-label>
+          <ion-input type="text" name="respuesta2" placeholder="Tu respuesta aquí"></ion-input>
+        </ion-item>
+
+        <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
