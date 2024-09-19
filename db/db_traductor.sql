@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-09-2024 a las 20:37:05
+-- Tiempo de generación: 18-09-2024 a las 21:27:04
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -11,15 +11,32 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Base de datos: `db_traductor`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `cedula` varchar(20) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `apellido` varchar(255) NOT NULL,
+  `correo` varchar(255) NOT NULL,
+  `telefono` varchar(17) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `admin`
+--
+
+INSERT INTO `admin` (`id`, `cedula`, `nombre`, `apellido`, `correo`, `telefono`, `password`) VALUES
+(1, '0803563774', 'Alexander Steven', 'Torres Santa', 'stev74@gmail.com', '0967201167', '$2y$10$wRKDPSpqHv6rj3WQ1Hrg.ucvqBMORDE53.TSaXkeAGQihspvJ8/ZK');
 
 -- --------------------------------------------------------
 
@@ -69,15 +86,22 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `cedula`, `nombre`, `apellido`, `correo`, `telefono`, `password`) VALUES
-(1, '', 'Steven', '', 'steven@gmail.com', '', '$2b$10$hqLw7MUArm6CvGRW4wVEAe0Uny4nkHgNbT.JgnLiB0QbDsGE2/Txm'),
-(2, '', 'Alexander Torres', '', 'alex@gmail.com', '', '$2b$10$1rQtZ81W8bzvbJL9s5lKWe9J3ZkIl/hnAFvRHM.8gylOR1D3diBKS'),
-(3, '', 'Adnres', '', 'andres@gmail.com', '', '$2b$10$RXvq1hxSIE78iiLo1QN8c.N76flgrTqmwDL9efiUz9WYLC092yev6'),
-(6, '0803563774', 'Alexander Steven', 'Torres Santa', 'stev74@gmail.com', '0967201167', '$2y$10$ouy6/1s/wHS0QmY1dWbxYevisIcPgvdblPXC3oLicPKTHy7q2ygV.'),
-(8, '0802032169', 'Daniel Enrique', 'Pineda Vernaza', 'verna@gmail.com', '0987364785', '$2y$10$GuwhUa/4t5Iaua8UOVlg4egJoJxKN0P4jjMCyYeb8iNmRiJWlgKqW');
+(1, '0807675434', 'Manuel', 'Caicedo', 'caice@gmail.com', '', '$2b$10$hqLw7MUArm6CvGRW4wVEAe0Uny4nkHgNbT.JgnLiB0QbDsGE2/Txm'),
+(2, '0845234152', 'Alexander', 'Torres', 'alex@gmail.com', '098987675', '$2b$10$1rQtZ81W8bzvbJL9s5lKWe9J3ZkIl/hnAFvRHM.8gylOR1D3diBKS'),
+(3, '0876787675', 'Amelia', 'Aguilar', 'amelia@gmail.com', '0924536452', '$2b$10$RXvq1hxSIE78iiLo1QN8c.N76flgrTqmwDL9efiUz9WYLC092yev6'),
+(6, '0803563774', 'Alexander Steven', 'Torres Santa', 'stev74@gmail.com', '0967201167', '$2y$10$5H6SeB6zP.fOp5g1Xm7Zr./Qix1n3FhtUJPXuO6i6RtLuBf8r47xq'),
+(9, '1400373583', 'Ayuy', 'asdasdas', 'asdasdasd', '13123131', '$2y$10$YIooECs4hkmwRLvEZ1uLROEbHaG1KecAIkRvteqsDsNVcF12E/UqG'),
+(10, '2350017170', 'Josue', 'Caicedp', 'caicedo@gmail.com', '0967234567', '$2y$10$JnmvuKWbrVYunH4BGcc95eHmhPNkoLnqTPk3M2/S73aFMJ04q7vxq');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `translations`
@@ -96,6 +120,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `translations`
 --
 ALTER TABLE `translations`
@@ -105,9 +135,5 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
