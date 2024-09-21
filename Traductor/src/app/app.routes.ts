@@ -48,6 +48,10 @@ export const routes: Routes = [
     path: 'dashboard',
     loadComponent: () => import('./admin/dashboard/dashboard.page').then(m => m.DashboardPage)
   },
+  {
+    path: 'admin/user/profile',
+    loadComponent: () => import('./admin/profile/profile.page').then(m => m.ProfilePage)
+  },
   // Rutas Administradores
   {
     path: 'admins',
@@ -73,9 +77,5 @@ export const routes: Routes = [
   {
     path: 'admin/user/:id',
     loadComponent: () => import('./admin/users-new-edit/users-new-edit.page').then(m => m.UsersNewEditPage)
-  },
-  {
-    path: 'admin/profile',
-    loadComponent: () => import('./admin/profile/profile.page').then(m => m.ProfilePage)
   }
 ];

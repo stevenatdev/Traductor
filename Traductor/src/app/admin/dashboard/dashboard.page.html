@@ -17,15 +17,17 @@
     <!-- Contenido principal del Dashboard -->
     <ion-grid>
       <ion-row>
-        <!-- Tarjeta de Traducciones Totales -->
+        <!-- Tarjeta de Administradores Totales -->
         <ion-col size="6">
           <ion-card>
             <ion-card-header>
-              <ion-card-title>Total Traducciones</ion-card-title>
+              <ion-card-title>Admins</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <h2>3,450</h2> <!-- Aquí colocarás el número real de traducciones -->
-              <p>Traducciones realizadas hasta la fecha</p>
+              @for (admin of admins; track $index) {
+              <h2>{{ admin.total_admins }}</h2>
+              }
+              <p>Administradores registrados actualmente</p>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -34,11 +36,13 @@
         <ion-col size="6">
           <ion-card>
             <ion-card-header>
-              <ion-card-title>Usuarios Activos</ion-card-title>
+              <ion-card-title>Usuarios</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <h2>125</h2> <!-- Aquí colocarás el número real de usuarios activos -->
-              <p>Usuarios activos actualmente</p>
+              @for (user of usuarios; track $index) {
+              <h2>{{ user.total_users }}</h2>
+              }
+              <p>Usuarios registrados actualmente</p>
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -57,47 +61,7 @@
             </ion-card-content>
           </ion-card>
         </ion-col>
-
-        <!-- Tarjeta de Idioma más Usado -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Idioma más Traducido</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>Español a Shuar</h2> <!-- Aquí indicarás el idioma más traducido -->
-              <p>60% de las traducciones son de Español a Shuar</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
       </ion-row>
 
-      <ion-row>
-        <!-- Tarjeta de Traducciones del Día -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Traducciones Hoy</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>45</h2> <!-- Aquí puedes colocar el número de traducciones de hoy -->
-              <p>Traducciones realizadas en las últimas 24 horas</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Feedback de Usuarios -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Feedback de Usuarios</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>95%</h2> <!-- Aquí puedes mostrar el porcentaje de feedback positivo -->
-              <p>Satisfacción general de los usuarios</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
     </ion-grid></ion-content>
 </div>
