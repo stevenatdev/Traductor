@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
           this._adminService.createSession('id', data.userSession[0].id);
           this._adminService.createSession('nombre', data.userSession[0].nombre);
           this._adminService.showToast(data.mensaje);
-          this._navCtrl.navigateRoot(['/admin']);
+          this._navCtrl.navigateRoot(['/dashboard']);
         } else {
           this._adminService.showToast(data.mensaje);
         }

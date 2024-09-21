@@ -2,102 +2,67 @@
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Lista de Administradores</ion-title>
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> <ion-header collapse="condense">
+
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
       <ion-toolbar>
-        <ion-title size="large">Dashboard</ion-title>
+        <ion-title size="large">Administradores</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <!-- Contenido principal del Dashboard -->
+    <!-- Botón para agregar un nuevo admin -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button routerLink="/admin/nuevo">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!-- Tabla para listar los admin -->
     <ion-grid>
       <ion-row>
-        <!-- Tarjeta de Traducciones Totales -->
-        <ion-col size="6">
+        <ion-col size="12">
           <ion-card>
-            <ion-card-header>
-              <ion-card-title>Total Traducciones</ion-card-title>
-            </ion-card-header>
             <ion-card-content>
-              <h2>3,450</h2> <!-- Aquí colocarás el número real de traducciones -->
-              <p>Traducciones realizadas hasta la fecha</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
+              <!-- Tabla HTML tradicional para evitar deformaciones -->
+              <table class="admin-table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                  <tr class="">
+                    <th [style]="{ 'text-align': 'start' }">Cédula</th>
+                    <th [style]="{ 'text-align': 'start' }">Nombre</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Fila por cada admin -->
+                  @for (admin of admins; track $index) {
+                  <tr>
+                    <td>{{ admin.cedula }}</td>
+                    <td>{{ admin.nombre }}</td>
+                    <td class="flex justify-end">
+                      <!-- Botones de acciones (Editar, Eliminar) -->
+                      <ion-button size="small" color="primary" routerLink="/admin/{{ admin.id }}">
+                        <ion-icon slot="start" name="create"></ion-icon>
+                      </ion-button>
 
-        <!-- Tarjeta de Usuarios Activos -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Usuarios Activos</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>125</h2> <!-- Aquí colocarás el número real de usuarios activos -->
-              <p>Usuarios activos actualmente</p>
+                      <ion-button size="small" color="danger" (click)="eliminarAdmin(admin.id)">
+                        <ion-icon slot="start" name="trash"></ion-icon>
+
+                      </ion-button>
+                    </td>
+                  </tr>
+                  }
+                </tbody>
+              </table>
             </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row>
-
-      <ion-row>
-        <!-- Tarjeta de Palabras más Traducidas -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Palabras Más Traducidas</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>Wai</h2> <!-- Aquí puedes mostrar la palabra más traducida -->
-              <p>Esta palabra ha sido traducida 250 veces</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Idioma más Usado -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Idioma más Traducido</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>Español a Shuar</h2> <!-- Aquí indicarás el idioma más traducido -->
-              <p>60% de las traducciones son de Español a Shuar</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <!-- Tarjeta de Traducciones del Día -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Traducciones Hoy</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>45</h2> <!-- Aquí puedes colocar el número de traducciones de hoy -->
-              <p>Traducciones realizadas en las últimas 24 horas</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-
-        <!-- Tarjeta de Feedback de Usuarios -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Feedback de Usuarios</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>95%</h2> <!-- Aquí puedes mostrar el porcentaje de feedback positivo -->
-              <p>Satisfacción general de los usuarios</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid></ion-content>
+    </ion-grid>
+  </ion-content>
 </div>

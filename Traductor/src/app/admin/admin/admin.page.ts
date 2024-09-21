@@ -3,19 +3,52 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavbarPage } from "../navbar/navbar.page";
 import { IonicModule } from '@ionic/angular';
+import { UsersService } from 'src/app/service/users.service';
+import { RouterLink } from '@angular/router';
+import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.page.html',
   styleUrls: ['./admin.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, NavbarPage]
+  imports: [IonicModule, CommonModule, FormsModule, NavbarPage, RouterLink]
 })
 export class AdminPage implements OnInit {
+  admins: any[] = [];
 
-  constructor() { }
+  constructor(private _adminService: AdminService) { }
 
   ngOnInit() {
+    this.getAdmin();
   }
 
+  getAdmin() {
+    let datos = {
+      accion: 'consultar'
+    }
+
+    this._adminService.postData(datos).subscribe((data: any) => {
+      if (data.estado == true) {
+        this.admins = data.admins;
+      } else {
+        this._adminService.showToast(data.mensaje);
+      }
+    })
+  }
+
+  eliminarAdmin(id: number) {
+    let datos = {
+      accion: 'eliminar',
+      id
+    }
+    this._adminService.postData(datos).subscribe((data: any) => {
+      if (data.estado == true) {
+        this._adminService.showToast(data.mensaje);
+        this.getAdmin();
+      } else {
+        this._adminService.showToast(data.mensaje);
+      }
+    })
+  }
 }

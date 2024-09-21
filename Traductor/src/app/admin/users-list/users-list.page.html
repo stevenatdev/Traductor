@@ -2,7 +2,7 @@
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Lista de Usuarios</ion-title>
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -18,7 +18,7 @@
 
     <!-- Botón para agregar un nuevo usuario -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button (click)="agregarUsuario()">
+      <ion-fab-button routerLink="/admin/user/nuevo">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
@@ -28,38 +28,34 @@
       <ion-row>
         <ion-col size="12">
           <ion-card>
-            <ion-card-header>
-              <ion-card-title>Lista de Usuarios</ion-card-title>
-            </ion-card-header>
-
             <ion-card-content>
               <!-- Tabla HTML tradicional para evitar deformaciones -->
               <table class="usuarios-table" style="width: 100%; border-collapse: collapse;">
                 <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Acciones</th>
+                  <tr class="">
+                    <th [style]="{ 'text-align': 'start' }">Cédula</th>
+                    <th [style]="{ 'text-align': 'start' }">Nombre</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <!-- Fila por cada usuario -->
-                  <tr *ngFor="let usuario of usuarios">
+                  @for (usuario of usuarios; track $index) {
+                  <tr>
+                    <td>{{ usuario.cedula }}</td>
                     <td>{{ usuario.nombre }}</td>
-                    <td>{{ usuario.email }}</td>
-                    <td>
+                    <td class="flex justify-end">
                       <!-- Botones de acciones (Editar, Eliminar) -->
-                      <ion-button size="small" color="primary" (click)="editarUsuario(usuario.id)">
+                      <ion-button size="small" color="primary" routerLink="/admin/user/{{ usuario.id }}">
                         <ion-icon slot="start" name="create"></ion-icon>
-
                       </ion-button>
 
                       <ion-button size="small" color="danger" (click)="eliminarUsuario(usuario.id)">
                         <ion-icon slot="start" name="trash"></ion-icon>
-
                       </ion-button>
                     </td>
                   </tr>
+                  }
                 </tbody>
               </table>
             </ion-card-content>
