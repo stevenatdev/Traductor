@@ -21,15 +21,45 @@ export class HomePage implements OnInit {
   textControl: FormControl = new FormControl();
 
   subscription: Subscription | undefined;
+  texto: any = [];
+  traduccion: any = [];
+  txt_texto: string = '';
+  tr: string = '';
 
   constructor(private _translationService: TranslationService) {
   }
 
   ngOnInit(): void {
-    this.translate();
+    // this.translate();
   }
 
-  translate() {
+  traducir() {
+    let datos = {
+      "accion": "traducir",
+      "palabra": this.txt_texto
+    };
+    this._translationService.postData(datos).subscribe((res: any) => {
+      console.log('Respuesta del servidor:', res); // Verifica qué se recibe
+      if (res.estado) {
+        this.texto = res.textos[0];//recibo el vector del oho en la variable persona
+
+        if (this.texto.palabraes == this.txt_texto) {
+          this.translation = this.texto.palabrash;
+          this.tr = "Traducción en Shuar";
+        } else {
+          if (this.texto.palabrash == this.txt_texto) {
+            this.translation = this.texto.palabraes;
+            this.tr = "Traducción en Espanol";
+          }
+        }
+      }
+      else {
+        this._translationService.showToast(res.mensaje);
+      }
+    });
+  }
+
+  /* translate() {
     this.subscription = this.textControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
@@ -52,17 +82,17 @@ export class HomePage implements OnInit {
       console.error('Error en la traducción:', error);
       this.translation = 'Error al realizar la traducción.';
     });
-  }
+  } */
 
-  ngOnDestroy(): void {
+  /* ngOnDestroy(): void {
     // Desuscribirse para evitar memory leaks
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
-  }
+  } */
 
   // Método para cambiar el idioma de origen
-  toggleLanguage(): void {
+  /* toggleLanguage(): void {
     this.textControl.valueChanges.pipe(
       debounceTime(300),
       distinctUntilChanged(),
@@ -85,5 +115,5 @@ export class HomePage implements OnInit {
       console.error('Error en la traducción:', error);
       this.translation = 'Error al realizar la traducción.';
     });
-  }
+  } */
 }
