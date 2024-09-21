@@ -28,6 +28,8 @@ export class UsersListPage implements OnInit {
     }
 
     this._usersService.postData(datos).subscribe((data: any) => {
+      console.log(data);
+
       if (data.estado == true) {
         this.usuarios = data.users;
       } else {

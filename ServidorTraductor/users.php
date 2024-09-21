@@ -156,69 +156,36 @@ if ($post['accion'] == 'eliminar') {
     echo $respuesta;
 }
 
-// Recuperar Contraseñas
 if ($post['accion'] == 'cambiarPassword') {
     $sql = sprintf("SELECT id FROM users WHERE cedula = '%s' AND correo = '%s' AND telefono = '%s'", $post['cedula'], $post['correo'], $post['telefono']);
     $result = mysqli_query($mysqli, $sql);
-    $row = mysqli_fetch_assoc($result);
-    if ($row['id']) {
-        $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
-        $sql = sprintf("UPDATE users SET password = '%s' WHERE id = '%s'", $password_encriptada, $row['id']);
-        $result = mysqli_query($mysqli, $sql);
-        if ($result) {
-            $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Contraseña cambiada correctamente'));
-        } else {
-            $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al cambiar contraseña'));
-        }
+
+    if (!$result) {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error en la consulta SQL'));
     } else {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
+        $row = mysqli_fetch_assoc($result);
+
+        if ($row && isset($row['id'])) {
+            // Encriptar la nueva contraseña
+            $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
+
+            // Actualizar la contraseña en la base de datos
+            $sql_update = sprintf("UPDATE users SET password = '%s' WHERE id = '%s'", $password_encriptada, $row['id']);
+            $result_update = mysqli_query($mysqli, $sql_update);
+
+            if ($result_update) {
+                $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Contraseña cambiada correctamente'));
+            } else {
+                $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al cambiar Contraseña'));
+            }
+        } else {
+            $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
+        }
     }
+
     echo $respuesta;
 }
 
-// Traductor
-if ($post['accion'] == 'translate') {
-    $text = $post['text'];
-    $from = $post['from'];
-
-    if ($from === 'shuar') {
-        // Buscar la traducción de Shuar a Español
-        $sql = sprintf("SELECT espanol FROM translations WHERE shuar = '%s'", mysqli_real_escape_string($mysqli, $text));
-        $result = mysqli_query($mysqli, $sql);
-        if ($result) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row) {
-                $respuesta = array('estado' => true, 'translation' => $row['espanol']);
-            } else {
-                $respuesta = array('estado' => false, 'mensaje' => 'No se encontró la traducción.');
-            }
-        } else {
-            $respuesta = array('estado' => false, 'mensaje' => 'Error en la consulta.');
-        }
-    } else if ($from === 'espanol') {
-        // Buscar la traducción de Español a Shuar
-        $sql = sprintf("SELECT shuar FROM translations WHERE espanol = '%s'", mysqli_real_escape_string($mysqli, $text));
-        $result = mysqli_query($mysqli, $sql);
-        if ($result) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row) {
-                $respuesta = array('estado' => true, 'translation' => $row['shuar']);
-            } else {
-                $respuesta = array('estado' => false, 'mensaje' => 'No se encontró la traducción.');
-            }
-        } else {
-            $respuesta = array('estado' => false, 'mensaje' => 'Error en la consulta.');
-        }
-    } else {
-        $respuesta = array('estado' => false, 'mensaje' => 'Idioma no válido.');
-    }
-
-    echo json_encode($respuesta);
-} else {
-    echo json_encode(array('estado' => false, 'mensaje' => 'Acción no válida.'));
-}
-
-// Incompleto seguir viendo la clase
 if ($post['accion'] == 'consultar') {
     $sql = sprintf("SELECT * FROM users");
     $result = mysqli_query($mysqli, $sql);
@@ -227,8 +194,7 @@ if ($post['accion'] == 'consultar') {
             $data[] = array(
                 'id' => $row['id'],
                 'cedula' => $row['cedula'],
-                'nombre' => $row['nombre'],
-                'apellido' => $row['apellido']
+                'nombre' => $row['nombre']
             );
         }
         $respuesta = json_encode(array('estado' => true, 'users' => $data));
@@ -238,12 +204,12 @@ if ($post['accion'] == 'consultar') {
     echo $respuesta;
 }
 
-if ($post['accion'] == 'datosPersona') {
+if ($post['accion'] == 'getUsuario') {
     $sql = sprintf("SELECT * FROM users WHERE id = '%s'", $post['id']);
     $result = mysqli_query($mysqli, $sql);
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $data[] = array(
+            $data = array(
                 'id' => $row['id'],
                 'cedula' => $row['cedula'],
                 'nombre' => $row['nombre'],
