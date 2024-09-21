@@ -46,15 +46,14 @@ export class HomePage implements OnInit {
         if (this.texto.palabraes == this.txt_texto) {
           this.translation = this.texto.palabrash;
           this.tr = "Traducción en Shuar";
-        } else {
-          if (this.texto.palabrash == this.txt_texto) {
-            this.translation = this.texto.palabraes;
-            this.tr = "Traducción en Espanol";
-          }
+        } else if (this.texto.palabrash == this.txt_texto) {
+          this.translation = this.texto.palabraes;
+          this.tr = "Traducción en Espanol";
         }
       }
       else {
-        this._translationService.showToast(res.mensaje);
+        this.translation = 'No existe esta palabra en la base de datos.';
+        this.tr = "";
       }
     });
   }
