@@ -1,0 +1,350 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sección Auditiva</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Sección de Saludos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Saludos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      @if (translationSaludos) {
+      <ion-card-title>Traducción en español: <b>{{ translationSaludos }}</b></ion-card-title>
+      }
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('traducir')">
+              <!-- <img src="../../../assets/img/saludos/hola.png" alt="Hola" /> -->
+              <ion-card-header>
+                <ion-card-title>Hola</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirSaludos('traducir')">
+              <!-- <img src="../../../assets/img/saludos/adios.png" alt="Adiós" /> -->
+              <ion-card-header>
+                <ion-card-title>Adiós</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('traducir')">
+              <!-- <img src="../../../assets/img/saludos/buenos dias.png" alt="Buenos días" /> -->
+              <ion-card-header>
+                <ion-card-title>Buenos días</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirSaludos('traducir')">
+              <!-- <img src="../../../assets/img/saludos/buenastardes.png" alt="Buenas tardes" /> -->
+              <ion-card-header>
+                <ion-card-title>Buenas tardes</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirSaludos('traducir')">
+              <!-- <img src="../../../assets/img/saludos/buenasnoches.png" alt="Buenas noches" /> -->
+              <ion-card-header>
+                <ion-card-title>Buenas noches</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirSaludos('traducir')">
+              <!-- <img src="../../../assets/img/saludos/comoestas.png" alt="¿Cómo estás?" /> -->
+              <ion-card-header>
+                <ion-card-title>¿Cómo estás?</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sección de Colores y Números -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Ukújtiúrmar y Nekápmatal</ion-card-title>
+      <ion-card-subtitle>Colores y Números</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      @if (translation) {
+      <ion-card-title>Traducción en español: <b>{{ translation }}</b></ion-card-title>
+      }
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('kapaku')">
+              <ion-img src="../../../assets/img/colores-nums/rojo.png" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Kapaku</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('kinkla')">
+              <ion-img src="../../../assets/img/colores-nums/azul.jpg" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Kinkla</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('samék')">
+              <ion-img src="../../../assets/img/colores-nums/verde.png" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Samék</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('yumkumá')">
+              <ion-img src="../../../assets/img/colores-nums/amarillo.png" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Yumkumá</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('chikichik')">
+              <ion-img src="../../../assets/img/colores-nums/uno.jpg" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Chikichik</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('jímiar')">
+              <ion-img src="../../../assets/img/colores-nums/dos.jpg" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Jímiar</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('mehaínt')">
+              <ion-img src="../../../assets/img/colores-nums/tres.jpg" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Mehaínt</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducir('aintiuk')">
+              <ion-img src="../../../assets/img/colores-nums/cuatro.jpg" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Aíntiuk</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sección de Familia -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Wí shuar</ion-card-title>
+      <ion-card-subtitle>Mi familia</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      @if (translationFamilia) {
+      <ion-card-title>Traducción en español: <b>{{ translationFamilia }}</b></ion-card-title>
+      }
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirFamilia('nuku')">
+              <ion-img src="../../../assets/img/familia/madre.png" alt="Madre" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Nuku</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirFamilia('apa')">
+              <ion-img src="../../../assets/img/familia/padre.jpg" alt="Padre" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Apa</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirFamilia('uchi')">
+              <ion-img src="../../../assets/img/familia/hijo.png" alt="Hijo" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Uchi</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirFamilia('nawánt')">
+              <ion-img src="../../../assets/img/familia/hija.jpg" alt="Hija" class="toy-image"></ion-img>
+              <ion-card-header>
+                <ion-card-title>Nawánt</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirFamilia('apachich´')">
+              <img src="../../../assets/img/familia/abuelo.png" alt="Abuelo" class="toy-image" />
+              <ion-card-header>
+                <ion-card-title>Apachich´</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirFamilia('nukuchich´')">
+              <img src="../../../assets/img/familia/abuela.png" alt="Abuela" class="toy-image" />
+              <ion-card-header>
+                <ion-card-title>Nukuchich´</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sección de Juguetes -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Winia nakúrutair</ion-card-title>
+      <ion-card-subtitle>Mis juguetes</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      @if (translationJuguetes) {
+      <ion-card-title>Traducción en español: <b>{{ translationJuguetes }}</b></ion-card-title>
+      }
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirJuguetes('sankántiai')">
+              <img src="../../../assets/img/juguetes/pelota.png" alt="Pelota" class="toy-image" />
+              <ion-card-header>
+                <ion-card-title>Sankántiai</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirJuguetes('yakátai')">
+              <img src="../../../assets/img/juguetes/colores.png" alt="Lapices de colores" class="toy-image" />
+              <ion-card-header>
+                <ion-card-title>Yakátai</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirJuguetes('waátai')">
+              <img src="../../../assets/img/juguetes/rompecabezas.png" alt="Rompecabezas" class="toy-image" />
+              <ion-card-header>
+                <ion-card-title>Waátai</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirJuguetes('wea-wea')">
+              <img src="../../../assets/img/juguetes/trompo.png" alt="Trompo" class="toy-image" />
+              <ion-card-header>
+                <ion-card-title>Wea-wea</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirJuguetes('kunkuimiach')">
+              <img src="../../../assets/img/juguetes/carrito.png" alt="Carrito" class="toy-image" />
+              <ion-card-header>
+                <ion-card-title>Kunkuimiach</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sección de Animales -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Aíniawai</ion-card-title>
+      <ion-card-subtitle>Animales</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      @if (translationAnimales) {
+      <ion-card-title>Traducción en español: <b>{{ translationAnimales }}</b></ion-card-title>
+      }
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('yawá')">
+              <img src="../../../assets/img/animales/perro.jpg" alt="Perro" />
+              <ion-card-header>
+                <ion-card-title>Yawá</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('michik')">
+              <img src="../../../assets/img/animales/gato.png" alt="Gato" />
+              <ion-card-header>
+                <ion-card-title>Michik</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('chai')">
+              <img src="../../../assets/img/animales/oso.jpg" alt="Oso" />
+              <ion-card-header>
+                <ion-card-title>Chaí</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('uunt yawá')">
+              <img src="../../../assets/img/animales/tigre.jpg" alt="Tigre" />
+              <ion-card-header>
+                <ion-card-title>Uunt yawá</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('yantána')">
+              <img src="../../../assets/img/animales/tigrillo.jpg" alt="Tigrillo" />
+              <ion-card-header>
+                <ion-card-title>Yantána</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6" size-md="2">
+            <ion-card (click)="traducirAnimales('pátu')">
+              <img src="../../../assets/img/animales/pato.jpg" alt="Pato" />
+              <ion-card-header>
+                <ion-card-title>Pátu</ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

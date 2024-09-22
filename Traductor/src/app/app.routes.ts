@@ -34,6 +34,10 @@ export const routes: Routes = [
     path: 'lecciones',
     loadComponent: () => import('./components/lecciones/lecciones.page').then(m => m.LeccionesPage)
   },
+  {
+    path: 'aprender',
+    loadComponent: () => import('./components/aprender/aprender.page').then(m => m.AprenderPage)
+  },
   // Desafios
   {
     path: 'desafio-one',
@@ -98,5 +102,9 @@ export const routes: Routes = [
   {
     path: 'admin/user/:id',
     loadComponent: () => import('./admin/users-new-edit/users-new-edit.page').then(m => m.UsersNewEditPage)
+  },
+  {
+    path: 'sonidos',
+    loadComponent: () => import('./components/sonidos/sonidos.page').then( m => m.SonidosPage)
   }
 ];

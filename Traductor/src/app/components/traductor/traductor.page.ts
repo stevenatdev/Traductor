@@ -18,7 +18,7 @@ export class TraductorPage implements OnInit {
   }
 
   aprender() {
-    this._navCtrl.navigateRoot(['/lecciones']);
+    this._navCtrl.navigateRoot(['/aprender']);
   }
 
   sonidos() {
