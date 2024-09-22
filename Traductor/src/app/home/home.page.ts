@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { debounceTime, distinctUntilChanged, Subscription, switchMap } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { TranslationService } from '../service/translation.service';
 
 @Component({
@@ -36,17 +36,17 @@ export class HomePage implements OnInit {
   traducir() {
     let datos = {
       "accion": "traducir",
-      "palabra": this.txt_texto
+      "palabra": this.txt_texto.toLowerCase()
     };
     this._translationService.postData(datos).subscribe((res: any) => {
       console.log('Respuesta del servidor:', res); // Verifica qué se recibe
       if (res.estado) {
         this.texto = res.textos[0];//recibo el vector del oho en la variable persona
 
-        if (this.texto.palabraes == this.txt_texto) {
+        if (this.texto.palabraes == this.txt_texto.toLowerCase()) {
           this.translation = this.texto.palabrash;
           this.tr = "Traducción en Shuar";
-        } else if (this.texto.palabrash == this.txt_texto) {
+        } else if (this.texto.palabrash == this.txt_texto.toLowerCase()) {
           this.translation = this.texto.palabraes;
           this.tr = "Traducción en Espanol";
         }

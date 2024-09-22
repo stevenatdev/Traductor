@@ -8,7 +8,6 @@ header('ContentType:application/json; charset=utf-8');
 $post = json_decode(file_get_contents('php://input'), true);
 $respuesta = '';
 
-// Iniciar Sesión
 if ($post['accion'] == 'login') {
     $sql = sprintf("SELECT * FROM admin WHERE cedula = '%s'", $post['cedula']);
     $result = mysqli_query($mysqli, $sql);
@@ -30,7 +29,91 @@ if ($post['accion'] == 'login') {
     echo $respuesta;
 }
 
-// Registrar usuarios
+if ($post['accion'] == 'cambiarPassword') {
+    $sql = sprintf("SELECT id FROM admin WHERE cedula = '%s' AND correo = '%s' AND telefono = '%s'", $post['cedula'], $post['correo'], $post['telefono']);
+    $result = mysqli_query($mysqli, $sql);
+
+    if (!$result) {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error en la consulta SQL'));
+    } else {
+        $row = mysqli_fetch_assoc($result);
+
+        if ($row && isset($row['id'])) {
+            // Encriptar la nueva contraseña
+            $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
+
+            // Actualizar la contraseña en la base de datos
+            $sql_update = sprintf("UPDATE admin SET password = '%s' WHERE id = '%s'", $password_encriptada, $row['id']);
+            $result_update = mysqli_query($mysqli, $sql_update);
+
+            if ($result_update) {
+                $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Contraseña cambiada correctamente'));
+            } else {
+                $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al cambiar Contraseña'));
+            }
+        } else {
+            $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
+        }
+    }
+
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'consultar') {
+    $sql = sprintf("SELECT * FROM admin");
+    $result = mysqli_query($mysqli, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = array(
+                'id' => $row['id'],
+                'cedula' => $row['cedula'],
+                'nombre' => $row['nombre']
+            );
+        }
+        $respuesta = json_encode(array('estado' => true, 'admins' => $data));
+    } else {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
+    }
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'totalAdmins') {
+    $sql = sprintf("SELECT COUNT(*) AS total_admins FROM `admin`;");
+    $result = mysqli_query($mysqli, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = array(
+                'total_admins' => $row['total_admins']
+            );
+        }
+        $respuesta = json_encode(array('estado' => true, 'admins' => $data));
+    } else {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
+    }
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'getAdmin') {
+    $sql = sprintf("SELECT * FROM admin WHERE id = '%s'", $post['id']);
+    $result = mysqli_query($mysqli, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data = array(
+                'id' => $row['id'],
+                'cedula' => $row['cedula'],
+                'nombre' => $row['nombre'],
+                'apellido' => $row['apellido'],
+                'correo' => $row['correo'],
+                'password' => $row['password']
+            );
+        }
+        $respuesta = json_encode(array('estado' => true, 'admin' => $data));
+    } else {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
+    }
+    echo $respuesta;
+}
+
 if ($post['accion'] == 'registrar') {
     // Verificamos si la cédula es válida
     /* if (!validarCedula($post['cedula'])) {
@@ -86,6 +169,37 @@ if ($post['accion'] == 'registrar') {
     echo $respuesta;
 }
 
+if ($post['accion'] == 'actualizar') {
+    $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
+    $sql = sprintf(
+        "UPDATE admin SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s' WHERE id = '%s'",
+        $post['cedula'],
+        $post['nombre'],
+        $post['apellido'],
+        $password_encriptada,
+        $post['correo'],
+        $post['id']
+    );
+    $result = mysqli_query($mysqli, $sql);
+    if ($result) {
+        $respuesta = json_encode(array('estado' => true, 'mensaje' => 'El usuario se actualizo correctamente'));
+    } else {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al actualizar usuario'));
+    }
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'eliminar') {
+    $sql = sprintf("DELETE FROM admin WHERE id = '%s'", $post['id']);
+    $result = mysqli_query($mysqli, $sql);
+    if ($result) {
+        $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Usuario eliminado correctamente'));
+    } else {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al eliminar usuario'));
+    }
+    echo $respuesta;
+}
+
 // Función para validar la cédula ecuatoriana
 function validarCedula($cedula)
 {
@@ -123,105 +237,4 @@ function validarCedula($cedula)
     }
 
     return $digito_validador == $ultimo_digito;
-}
-
-if ($post['accion'] == 'actualizar') {
-    $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
-    $sql = sprintf(
-        "UPDATE admin SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s' WHERE id = '%s'",
-        $post['cedula'],
-        $post['nombre'],
-        $post['apellido'],
-        $password_encriptada,
-        $post['correo'],
-        $post['id']
-    );
-    $result = mysqli_query($mysqli, $sql);
-    if ($result) {
-        $respuesta = json_encode(array('estado' => true, 'mensaje' => 'El usuario se actualizo correctamente'));
-    } else {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al actualizar usuario'));
-    }
-    echo $respuesta;
-}
-
-if ($post['accion'] == 'eliminar') {
-    $sql = sprintf("DELETE FROM admin WHERE id = '%s'", $post['id']);
-    $result = mysqli_query($mysqli, $sql);
-    if ($result) {
-        $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Usuario eliminado correctamente'));
-    } else {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al eliminar usuario'));
-    }
-    echo $respuesta;
-}
-
-if ($post['accion'] == 'cambiarPassword') {
-    $sql = sprintf("SELECT id FROM admin WHERE cedula = '%s' AND correo = '%s' AND telefono = '%s'", $post['cedula'], $post['correo'], $post['telefono']);
-    $result = mysqli_query($mysqli, $sql);
-
-    if (!$result) {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error en la consulta SQL'));
-    } else {
-        $row = mysqli_fetch_assoc($result);
-
-        if ($row && isset($row['id'])) {
-            // Encriptar la nueva contraseña
-            $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
-
-            // Actualizar la contraseña en la base de datos
-            $sql_update = sprintf("UPDATE admin SET password = '%s' WHERE id = '%s'", $password_encriptada, $row['id']);
-            $result_update = mysqli_query($mysqli, $sql_update);
-
-            if ($result_update) {
-                $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Contraseña cambiada correctamente'));
-            } else {
-                $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al cambiar Contraseña'));
-            }
-        } else {
-            $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
-        }
-    }
-
-    echo $respuesta;
-}
-
-// Incompleto seguir viendo la clase
-if ($post['accion'] == 'consultar') {
-    $sql = sprintf("SELECT * FROM admin");
-    $result = mysqli_query($mysqli, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $data[] = array(
-                'id' => $row['id'],
-                'cedula' => $row['cedula'],
-                'nombre' => $row['nombre']
-            );
-        }
-        $respuesta = json_encode(array('estado' => true, 'admins' => $data));
-    } else {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
-    }
-    echo $respuesta;
-}
-
-if ($post['accion'] == 'getAdmin') {
-    $sql = sprintf("SELECT * FROM admin WHERE id = '%s'", $post['id']);
-    $result = mysqli_query($mysqli, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $data = array(
-                'id' => $row['id'],
-                'cedula' => $row['cedula'],
-                'nombre' => $row['nombre'],
-                'apellido' => $row['apellido'],
-                'correo' => $row['correo'],
-                'password' => $row['password']
-            );
-        }
-        $respuesta = json_encode(array('estado' => true, 'admin' => $data));
-    } else {
-        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'No existen personas registradas'));
-    }
-    echo $respuesta;
 }

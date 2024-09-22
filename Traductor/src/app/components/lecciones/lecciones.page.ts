@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-lecciones',
@@ -12,12 +12,32 @@ import { IonicModule } from '@ionic/angular';
 })
 export class LeccionesPage implements OnInit {
 
-  constructor() { }
+  constructor(private _navCtrl: NavController) { }
 
   ngOnInit() {
   }
 
-  verLeccion() {
+  verDesafio1() {
+    this._navCtrl.navigateForward('/desafio-one');
+  }
 
+  verDesafio2() {
+    this._navCtrl.navigateForward('/desafio-two');
+  }
+
+  verDesafio3() {
+    this._navCtrl.navigateForward('/desafio-three');
+  }
+
+  verDesafio4() {
+    this._navCtrl.navigateForward('/desafio-four');
+  }
+
+  verDesafio5() {
+    this._navCtrl.navigateForward('/desafio-five');
+  }
+
+  goBack() {
+    window.history.back();
   }
 }

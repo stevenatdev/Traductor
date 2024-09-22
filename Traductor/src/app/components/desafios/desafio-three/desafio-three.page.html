@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Desafío 3: Vocabulario Esencial - Evaluación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-center">Evaluación de Vocabulario Esencial</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <!-- Pregunta 1 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>1. ¿Cómo se dice "Casa" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>House</ion-label>
+                <ion-radio slot="start" value="house"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Home</ion-label>
+                <ion-radio slot="start" value="home"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 2 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>2. ¿Cómo se dice "Perro" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Dog</ion-label>
+                <ion-radio slot="start" value="dog"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Cat</ion-label>
+                <ion-radio slot="start" value="cat"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 3 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>3. ¿Cómo se dice "Libro" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Book</ion-label>
+                <ion-radio slot="start" value="book"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Magazine</ion-label>
+                <ion-radio slot="start" value="magazine"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 4 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>4. ¿Cómo se dice "Comida" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Food</ion-label>
+                <ion-radio slot="start" value="food"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Drink</ion-label>
+                <ion-radio slot="start" value="drink"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 5 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>5. ¿Cómo se dice "Silla" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Chair</ion-label>
+                <ion-radio slot="start" value="chair"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Table</ion-label>
+                <ion-radio slot="start" value="table"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
+        <ion-button expand="full" routerLink="/desafio3" color="light" class="mt-2">Regresar al Desafío 3</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

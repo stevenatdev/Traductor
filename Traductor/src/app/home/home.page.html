@@ -26,7 +26,7 @@
                 <label for="textToTranslate" class="block text-sm font-medium text-gray-700">Texto a traducir:</label>
                 <textarea id="textToTranslate" [formControl]="textControl" [(ngModel)]="txt_texto"
                     class="form-control mt-1 block w-full p-3 border rounded-lg shadow-sm"
-                    placeholder="Ingresa aquí el texto..." (focusout)="traducir()"></textarea>
+                    placeholder="Ingresa aquí el texto..."></textarea>
             </div>
             <ion-button expand="block" color="primary" (click)="traducir()">Traducir</ion-button>
 

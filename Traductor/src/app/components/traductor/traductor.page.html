@@ -1,40 +1,59 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>traductor</ion-title>
+    <ion-buttons slot="end">
+      <!-- Botón con icono de perfil -->
+      <ion-button>Perfil
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Menú Principal</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- Traductor -->
+  <!-- Menú con botones coloridos -->
   <section class="mt-20">
     <div class="container mx-auto p-6 bg-white rounded-lg shadow-md">
-      <ion-title class="text-2xl font-bold mb-4 ion-text-center">Traductor Bidireccional en Tiempo
-        Real</ion-title>
-      <p class="ion-text-center mb-6 text-gray-600">Introduce el texto en uno de los idiomas para ver la
-        traducción
-        instantánea.</p>
+      <ion-title class="text-2xl font-bold mb-4 ion-text-center">Seleccione una opción</ion-title>
 
-      <ion-item class="mb-6">
-        <ion-label position="floating">Idioma de origen:</ion-label>
-        <ion-select id="fromLanguage" [(ngModel)]="fromLanguage" (change)="toggleLanguage()">
-          <ion-select-option value="shuar">Shuar</ion-select-option>
-          <ion-select-option value="espanol">Español</ion-select-option>
-        </ion-select>
-      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <!-- Botón Aprender -->
+          <ion-col size="12">
+            <ion-button expand="block" color="primary" shape="round" size="large" (click)="aprender()">
+              Aprender
+            </ion-button>
+          </ion-col>
+        </ion-row>
 
-      <div class="form-group mb-6">
-        <label for="textToTranslate" class="block text-sm font-medium text-gray-700">Texto a traducir:</label>
-        <textarea id="textToTranslate" [formControl]="textControl"
-          class="form-control mt-1 block w-full p-3 border rounded-lg shadow-sm"
-          placeholder="Escribe aquí..."></textarea>
-      </div>
+        <ion-row>
+          <!-- Botón Sonidos -->
+          <ion-col size="12">
+            <ion-button expand="block" color="success" shape="round" size="large">
+              Sonidos
+            </ion-button>
+          </ion-col>
+        </ion-row>
 
-      @if (translation) {
-      <div class="mt-6 p-4 border border-gray-200 rounded-lg bg-gray-50">
-        <h2 class="text-lg font-semibold mb-2">Traducción:</h2>
-        <p>{{ translation }}</p>
-      </div>
-      }
+        <ion-row>
+          <!-- Botón Desafíos -->
+          <ion-col size="12">
+            <ion-button expand="block" color="warning" shape="round" size="large">
+              Desafíos
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <!-- Botón Regresar -->
+          <ion-col size="12">
+            <ion-button expand="block" color="danger" shape="round" size="large" (click)="regresar()">
+              Regresar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
     </div>
   </section>
 </ion-content>

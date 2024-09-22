@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Desafío 4: Frases Comunes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-center">Evaluación de Frases Comunes</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <!-- Pregunta 1 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>1. ¿Cómo se dice "¿Dónde está el baño?" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Where is the bathroom?</ion-label>
+                <ion-radio slot="start" value="whereBathroom"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Where is the kitchen?</ion-label>
+                <ion-radio slot="start" value="whereKitchen"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 2 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>2. ¿Cómo se dice "Me llamo..." en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>My name is...</ion-label>
+                <ion-radio slot="start" value="myName"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>I am...</ion-label>
+                <ion-radio slot="start" value="iAm"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 3 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>3. ¿Cómo se dice "Por favor" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Please</ion-label>
+                <ion-radio slot="start" value="please"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Thank you</ion-label>
+                <ion-radio slot="start" value="thankYou"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 4 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>4. ¿Cómo se dice "Gracias" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Thank you</ion-label>
+                <ion-radio slot="start" value="thankYou"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Please</ion-label>
+                <ion-radio slot="start" value="please"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 5 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>5. ¿Cómo se dice "¿Cómo se dice...?" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>How do you say...?</ion-label>
+                <ion-radio slot="start" value="howSay"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>What is...?</ion-label>
+                <ion-radio slot="start" value="whatIs"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
+        <ion-button expand="full" routerLink="/desafio4" color="light" class="mt-2">Regresar al Desafío 4</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

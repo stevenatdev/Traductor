@@ -34,6 +34,27 @@ export const routes: Routes = [
     path: 'lecciones',
     loadComponent: () => import('./components/lecciones/lecciones.page').then(m => m.LeccionesPage)
   },
+  // Desafios
+  {
+    path: 'desafio-one',
+    loadComponent: () => import('./components/desafios/desafio-one/desafio-one.page').then(m => m.DesafioOnePage)
+  },
+  {
+    path: 'desafio-two',
+    loadComponent: () => import('./components/desafios/desafio-two/desafio-two.page').then(m => m.DesafioTwoPage)
+  },
+  {
+    path: 'desafio-three',
+    loadComponent: () => import('./components/desafios/desafio-three/desafio-three.page').then(m => m.DesafioThreePage)
+  },
+  {
+    path: 'desafio-four',
+    loadComponent: () => import('./components/desafios/desafio-four/desafio-four.page').then(m => m.DesafioFourPage)
+  },
+  {
+    path: 'desafio-five',
+    loadComponent: () => import('./components/desafios/desafio-five/desafio-five.page').then(m => m.DesafioFivePage)
+  },
   // Admin Login
   {
     path: 'admin/login',

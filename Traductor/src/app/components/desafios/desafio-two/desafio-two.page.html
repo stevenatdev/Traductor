@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Desafío 2: Gramática Básica</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-center">Evaluación de Gramática Básica</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <!-- Pregunta 1 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>1. ¿Cuál es el artículo definido para "niño"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>El</ion-label>
+                <ion-radio slot="start" value="el"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>La</ion-label>
+                <ion-radio slot="start" value="la"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 2 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>2. ¿Cuál es el artículo definido para "niña"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>El</ion-label>
+                <ion-radio slot="start" value="el"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>La</ion-label>
+                <ion-radio slot="start" value="la"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 3 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>3. Completa la frase: "El ____ come".</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>niño</ion-label>
+                <ion-radio slot="start" value="nino"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>niña</ion-label>
+                <ion-radio slot="start" value="nina"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 4 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>4. ¿Cuál es el verbo correcto en la frase "Yo ____ español"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>hablo</ion-label>
+                <ion-radio slot="start" value="hablo"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>corro</ion-label>
+                <ion-radio slot="start" value="corro"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 5 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>5. ¿Cuál es el verbo correcto en la frase "Tú ____ rápido"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>corres</ion-label>
+                <ion-radio slot="start" value="corres"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>hablas</ion-label>
+                <ion-radio slot="start" value="hablas"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
+        <ion-button expand="full" routerLink="/desafio2" color="light" class="mt-2">Regresar al Desafío 2</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,215 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Desafío 1: Saludos en Español</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-center">Evaluación de Saludos</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <!-- Pregunta 1 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>1. ¿Cómo se dice "Hola" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Hello</ion-label>
+                <ion-radio slot="start" value="hello"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Goodbye</ion-label>
+                <ion-radio slot="start" value="goodbye"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 2 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>2. ¿Cómo respondes a "¿Cómo estás?"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Bien, gracias</ion-label>
+                <ion-radio slot="start" value="bien"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Hasta luego</ion-label>
+                <ion-radio slot="start" value="adios"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 3 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>3. Completa la frase: "Buenos ____".</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Días</ion-label>
+                <ion-radio slot="start" value="dias"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Noches</ion-label>
+                <ion-radio slot="start" value="noches"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 4 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>4. ¿Qué significa "Adiós" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Goodbye</ion-label>
+                <ion-radio slot="start" value="goodbye"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Hello</ion-label>
+                <ion-radio slot="start" value="hello"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 5 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>5. ¿Cómo se dice "Buenas noches" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Goodnight</ion-label>
+                <ion-radio slot="start" value="goodnight"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Good morning</ion-label>
+                <ion-radio slot="start" value="goodmorning"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 6 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>6. Completa la frase: "Buenas ____".</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Tardes</ion-label>
+                <ion-radio slot="start" value="tardes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Manos</ion-label>
+                <ion-radio slot="start" value="manos"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 7 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>7. ¿Cómo se despide una persona en español formalmente?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Hasta luego</ion-label>
+                <ion-radio slot="start" value="hastaluego"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Adiós</ion-label>
+                <ion-radio slot="start" value="adios"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 8 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>8. ¿Cómo preguntas a alguien "¿Qué tal?"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>¿Qué tal?</ion-label>
+                <ion-radio slot="start" value="quetal"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>¿Cómo te llamas?</ion-label>
+                <ion-radio slot="start" value="comotellamas"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 9 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>9. ¿Cómo se dice "Hasta pronto" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>See you soon</ion-label>
+                <ion-radio slot="start" value="seeYouSoon"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Goodbye</ion-label>
+                <ion-radio slot="start" value="goodbye"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 10 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>10. ¿Cómo se dice "Hola, ¿cómo te llamas?" en inglés?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group>
+              <ion-item>
+                <ion-label>Hello, what's your name?</ion-label>
+                <ion-radio slot="start" value="helloName"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Good morning</ion-label>
+                <ion-radio slot="start" value="goodMorning"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
+        <ion-button expand="full" routerLink="/desafio1" color="light" class="mt-2">Regresar al Desafío 1</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
