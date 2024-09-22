@@ -15,10 +15,10 @@ if ($post['accion'] == 'login') {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($post['password'], $row['password'])) {
             $data[] = array(
-                'id' => $row['id'],
+                'idAdmin' => $row['id'],
                 'nombre' => $row['nombre'] . ' ' . $row['apellido'],
             );
-            $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Acceso exitoso', 'userSession' => $data));
+            $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Acceso exitoso', 'adminSession' => $data));
         } else {
             $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Contraseña incorrecta'));
         }
