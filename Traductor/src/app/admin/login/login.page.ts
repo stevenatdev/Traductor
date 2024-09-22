@@ -33,8 +33,8 @@ export class LoginPage implements OnInit {
       this._adminService.postData(datos).subscribe((data: any) => {
         console.log(data);
         if (data.estado == true) {
-          this._adminService.createSession('id', data.userSession[0].id);
-          this._adminService.createSession('nombre', data.userSession[0].nombre);
+          this._adminService.createSession('idAdmin', data.adminSession[0].idAdmin);
+          this._adminService.createSession('nombre', data.adminSession[0].nombre);
           this._adminService.showToast(data.mensaje);
           this._navCtrl.navigateRoot(['/dashboard']);
         } else {

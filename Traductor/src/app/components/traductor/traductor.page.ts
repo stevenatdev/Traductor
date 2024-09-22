@@ -32,4 +32,8 @@ export class TraductorPage implements OnInit {
   regresar() {
     this._navCtrl.navigateRoot(['/home']);
   }
+
+  perfil() {
+    this._navCtrl.navigateRoot(['/profile']);
+  }
 }

@@ -41,7 +41,7 @@ export class HomePage implements OnInit {
     this._translationService.postData(datos).subscribe((res: any) => {
       console.log('Respuesta del servidor:', res); // Verifica qué se recibe
       if (res.estado) {
-        this.texto = res.textos[0];
+        this.texto = res.textos[0];//recibo el vector del oho en la variable persona
 
         if (this.texto.palabraes == this.txt_texto.toLowerCase()) {
           this.translation = this.texto.palabrash;

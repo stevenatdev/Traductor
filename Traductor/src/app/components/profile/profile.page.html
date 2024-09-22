@@ -1,13 +1,57 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <form class="flex flex-col gap-3">
+    <div class="form-floating flex flex-col gap-2">
+      <label>Cédula</label>
+      <input type="text" class="form-control" placeholder="Ingrese su cédula" [(ngModel)]="cedula"
+        [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-floating flex flex-col gap-2">
+      <label>Nombres</label>
+      <input type="text" class="form-control" placeholder="Ingrese sus nombres" [(ngModel)]="nombre"
+        [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-floating flex flex-col gap-2">
+      <label>Apellidos</label>
+      <input type="text" class="form-control" placeholder="Ingrese sus apellidos" [(ngModel)]="apellido"
+        [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-floating flex flex-col gap-2">
+      <label>Correo electrónico</label>
+      <input type="email" class="form-control" placeholder="Ingrese su correo electrónico" [(ngModel)]="correo"
+        [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-floating flex flex-col gap-2">
+      <label>Teléfono</label>
+      <input type="text" class="form-control" placeholder="Ingrese su número de teléfono" [(ngModel)]="telefono"
+        [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-floating flex flex-col gap-2">
+      <label>Contraseña</label>
+      <input type="password" class="form-control" placeholder="************" [(ngModel)]="password"
+        [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-floating flex flex-col gap-2">
+      <label>Confirmar Contraseña</label>
+      <input type="password" class="form-control" placeholder="************" [(ngModel)]="confirmPassword"
+        [ngModelOptions]="{standalone: true}">
+    </div>
+    @if (password !== confirmPassword) {
+    <div class="form-floating flex flex-col gap-2">
+      <span class="text-red-500">Las contraseñas no coinciden</span>
+    </div>
+    }
+    <ion-button color="primary" (click)="actualizar()">Actualizar</ion-button>
+  </form>
 </ion-content>
