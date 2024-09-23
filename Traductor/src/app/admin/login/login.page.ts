@@ -47,4 +47,11 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  recuperarPassword() {
+    this._navCtrl.navigateRoot(['/admin/recuperar-password']);
+  }
+
+  home() {
+    this._navCtrl.navigateRoot(['/home']);
+  }
 }

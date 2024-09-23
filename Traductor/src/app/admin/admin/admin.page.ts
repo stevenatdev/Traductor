@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavbarPage } from "../navbar/navbar.page";
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { UsersService } from 'src/app/service/users.service';
 import { RouterLink } from '@angular/router';
 import { AdminService } from 'src/app/service/admin.service';
@@ -17,9 +17,12 @@ import { AdminService } from 'src/app/service/admin.service';
 export class AdminPage implements OnInit {
   admins: any[] = [];
 
-  constructor(private _adminService: AdminService) { }
+  constructor(private _adminService: AdminService, private _navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
     this.getAdmin();
   }
 
@@ -35,6 +38,14 @@ export class AdminPage implements OnInit {
         this._adminService.showToast(data.mensaje);
       }
     })
+  }
+
+  agregar() {
+    this._navCtrl.navigateForward('/admin/nuevo');
+  }
+
+  editar(id: number) {
+    this._navCtrl.navigateForward('/admin/' + id);
   }
 
   eliminarAdmin(id: number) {

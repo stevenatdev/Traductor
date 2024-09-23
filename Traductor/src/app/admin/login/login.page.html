@@ -11,9 +11,9 @@
         <label>Contraseña</label>
         <input type="password" class="form-control" placeholder="************" [(ngModel)]="password">
       </div>
-      <ion-button color="primary" (click)="login()">Iniciar Sesión</ion-button>
-      <a routerLink="/admin/recuperar-password" class="text-center">¿Olvidaste tu contraseña?</a>
-      <a routerLink="/home" class="text-decoration-none text-center text-lg text-blue-500">&larr; Ir al
+      <ion-button color="success" (click)="login()">Iniciar Sesión</ion-button>
+      <a (click)="recuperarPassword()" class="text-center">¿Olvidaste tu contraseña?</a>
+      <a (click)="home()" class="text-decoration-none text-center text-lg text-green-500">&larr; Ir al
         inicio</a>
     </div>
   </div>

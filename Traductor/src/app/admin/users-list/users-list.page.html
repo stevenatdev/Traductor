@@ -18,8 +18,8 @@
 
     <!-- Botón para agregar un nuevo usuario -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button routerLink="/admin/user/nuevo">
-        <ion-icon name="add"></ion-icon>
+      <ion-fab-button color="success" (click)="agregar()">
+        <i class='bx bx-cross icon'></i>
       </ion-fab-button>
     </ion-fab>
 
@@ -33,8 +33,8 @@
               <table class="usuarios-table" style="width: 100%; border-collapse: collapse;">
                 <thead>
                   <tr class="">
-                    <th [style]="{ 'text-align': 'start' }">Cédula</th>
-                    <th [style]="{ 'text-align': 'start' }">Nombre</th>
+                    <th [style]="{ 'text-align': 'start' }"><b>Cédula</b></th>
+                    <th [style]="{ 'text-align': 'start' }"><b>Nombre</b></th>
                     <th></th>
                   </tr>
                 </thead>
@@ -46,12 +46,12 @@
                     <td>{{ usuario.nombre }}</td>
                     <td class="flex justify-end">
                       <!-- Botones de acciones (Editar, Eliminar) -->
-                      <ion-button size="small" color="primary" routerLink="/admin/user/{{ usuario.id }}">
-                        <ion-icon slot="start" name="create"></ion-icon>
+                      <ion-button size="small" color="success" (click)="editar(usuario.id)">
+                        <i class='bx bx-edit icon'></i>
                       </ion-button>
 
                       <ion-button size="small" color="danger" (click)="eliminarUsuario(usuario.id)">
-                        <ion-icon slot="start" name="trash"></ion-icon>
+                        <i class='bx bx-trash icon'></i>
                       </ion-button>
                     </td>
                   </tr>

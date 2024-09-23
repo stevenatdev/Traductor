@@ -19,6 +19,22 @@ export class NavbarPage implements OnInit {
   ngOnInit() {
   }
 
+  dashboard() {
+    this._navCtrl.navigateRoot('/dashboard');
+  }
+
+  usuarios() {
+    this._navCtrl.navigateRoot('/admin/user/lista');
+  }
+
+  admins() {
+    this._navCtrl.navigateRoot('/admins');
+  }
+
+  perfil() {
+    this._navCtrl.navigateRoot('/admin/user/profile');
+  }
+
   salir() {
     this._adminService.closeSession();
     this._navCtrl.navigateRoot('/admin/login');

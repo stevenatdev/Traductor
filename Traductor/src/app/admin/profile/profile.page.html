@@ -3,8 +3,7 @@
     <ion-title>Perfil</ion-title>
     <ion-buttons slot="start">
       <ion-button (click)="goBack()">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-        Regresar
+        <i class='bx bx-log-out-circle icon'></i>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -52,6 +51,6 @@
       <span class="text-red-500">Las contraseñas no coinciden</span>
     </div>
     }
-    <ion-button color="primary" (click)="actualizar()">Actualizar</ion-button>
+    <ion-button color="success" (click)="actualizar()">Actualizar</ion-button>
   </form>
 </ion-content>

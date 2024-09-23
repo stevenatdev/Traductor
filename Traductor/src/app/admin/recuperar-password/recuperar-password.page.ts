@@ -56,4 +56,8 @@ export class RecuperarPasswordPage implements OnInit {
       })
     }
   }
+
+  cancelar() {
+    this._navCtrl.navigateRoot(['/admin/login']);
+  }
 }

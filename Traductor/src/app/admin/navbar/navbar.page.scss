@@ -1,0 +1,56 @@
+/* Estilos generales para el menú */
+ion-menu {
+    --background: #f9f9f9;
+    --ion-background-color: #ffffff;
+  }
+  
+  ion-toolbar {
+    --background: #4caf50;
+    --color: #ffffff;
+  }
+  
+  ion-title {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  /* Estilo para los ítems del menú */
+  .menu-item {
+    --background: #ffffff;
+    --border-color: transparent;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-item:hover {
+    --background: #e0f7fa;
+  }
+  
+  .icon {
+    color: #4caf50;
+    font-size: 22px;
+    margin-right: 10px;
+  }
+  
+  ion-label {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  /* Añadir una sombra suave a los ítems del menú */
+  ion-item {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Espaciado entre ítems */
+  ion-list {
+    margin: 20px 0;
+  }
+  
+  /* Animación suave al hacer hover */
+  .menu-item:hover ion-label, 
+  .menu-item:hover ion-icon {
+    color: #388e3c;
+  }
+  

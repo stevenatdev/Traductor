@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavbarPage } from "../navbar/navbar.page";
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { UsersService } from 'src/app/service/users.service';
 import { RouterLink } from '@angular/router';
 
@@ -16,9 +16,12 @@ import { RouterLink } from '@angular/router';
 export class UsersListPage implements OnInit {
   usuarios: any[] = [];
 
-  constructor(private _usersService: UsersService) { }
+  constructor(private _usersService: UsersService, private _navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
     this.getUsers();
   }
 
@@ -36,6 +39,14 @@ export class UsersListPage implements OnInit {
         this._usersService.showToast(data.mensaje);
       }
     })
+  }
+
+  agregar() {
+    this._navCtrl.navigateForward('/admin/user/nuevo');
+  }
+
+  editar(id: number) {
+    this._navCtrl.navigateForward('/admin/user/' + id);
   }
 
   eliminarUsuario(id: number) {

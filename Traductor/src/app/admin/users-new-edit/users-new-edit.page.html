@@ -1,9 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>{{ operacion }} Usuario</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="regresar()">Regresar
-        <ion-icon name="close"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+        <i class='bx bx-log-out-circle icon'></i>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -51,6 +51,6 @@
       <span class="text-red-500">Las contraseñas no coinciden</span>
     </div>
     }
-    <ion-button color="primary" (click)="registrar()">{{ operacion }} Usuario</ion-button>
+    <ion-button color="success" (click)="registrar()">{{ operacion }} Usuario</ion-button>
   </form>
 </ion-content>

@@ -22,7 +22,6 @@ export class UsersNewEditPage implements OnInit {
   telefono: string;
   password: string;
   confirmPassword: string;
-  terminos: boolean = false;
   operacion: string;
   constructor(private _usersService: UsersService, private _navCtrl: NavController, private route: ActivatedRoute) {
     this.cedula = '';
