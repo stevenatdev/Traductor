@@ -77,13 +77,11 @@ export const routes: Routes = [
   // Admin Login
   {
     path: 'admin/login',
-    loadComponent: () => import('./admin/login/login.page').then(m => m.LoginPage),
-    canActivate: [authGuard]
+    loadComponent: () => import('./admin/login/login.page').then(m => m.LoginPage)
   },
   {
     path: 'admin/recuperar-password',
-    loadComponent: () => import('./admin/recuperar-password/recuperar-password.page').then(m => m.RecuperarPasswordPage),
-    canActivate: [authGuard]
+    loadComponent: () => import('./admin/recuperar-password/recuperar-password.page').then(m => m.RecuperarPasswordPage)
   },
   // Rutas Admin
   {
