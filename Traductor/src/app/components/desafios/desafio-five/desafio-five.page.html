@@ -6,31 +6,31 @@
         Regresar
       </ion-button>
     </ion-buttons>
-    <ion-title>Desafío 5: Conversaciones Básicas</ion-title>
+    <ion-title>Desafío 5: Mis Juguetes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title class="text-center">Evaluación de Conversaciones Básicas</ion-card-title>
+      <ion-card-title class="text-center">Evaluación de Mis Juguetes</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form>
+      <form (ngSubmit)="enviarRespuestas()">
         <!-- Pregunta 1 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>1. ¿Cuál es la respuesta correcta a "¿Cómo estás?"?</ion-card-title>
+            <ion-card-title>1. ¿Cómo se dice "pelota" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta1" name="pregunta1">
               <ion-item>
-                <ion-label>Estoy bien</ion-label>
-                <ion-radio slot="start" value="bien"></ion-radio>
+                <ion-label>Sankántiai</ion-label>
+                <ion-radio slot="start" value="sankantiai"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>¿Y tú?</ion-label>
-                <ion-radio slot="start" value="yTu"></ion-radio>
+                <ion-label>Yakátai</ion-label>
+                <ion-radio slot="start" value="yakatiai"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -39,17 +39,17 @@
         <!-- Pregunta 2 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>2. ¿Qué significa "Hasta luego"?</ion-card-title>
+            <ion-card-title>2. ¿Cómo se dice "lápices de colores" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta2" name="pregunta2">
               <ion-item>
-                <ion-label>See you later</ion-label>
-                <ion-radio slot="start" value="seeYouLater"></ion-radio>
+                <ion-label>Yakátai</ion-label>
+                <ion-radio slot="start" value="yakatiai"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>Goodbye</ion-label>
-                <ion-radio slot="start" value="goodbye"></ion-radio>
+                <ion-label>Wésham</ion-label>
+                <ion-radio slot="start" value="weshan"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -58,17 +58,17 @@
         <!-- Pregunta 3 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>3. ¿Cómo respondes a "¿Te gustaría un café?"?</ion-card-title>
+            <ion-card-title>3. ¿Cómo se dice "zumbambico" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta3" name="pregunta3">
               <ion-item>
-                <ion-label>Sí, por favor</ion-label>
-                <ion-radio slot="start" value="siPorFavor"></ion-radio>
+                <ion-label>Wésham</ion-label>
+                <ion-radio slot="start" value="weshan"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>No, gracias</ion-label>
-                <ion-radio slot="start" value="noGracias"></ion-radio>
+                <ion-label>Waátai</ion-label>
+                <ion-radio slot="start" value="waatai"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -77,17 +77,17 @@
         <!-- Pregunta 4 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>4. ¿Cómo se dice "¿Qué hora es?" en inglés?</ion-card-title>
+            <ion-card-title>4. ¿Cómo se dice "rompecabezas" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta4" name="pregunta4">
               <ion-item>
-                <ion-label>What time is it?</ion-label>
-                <ion-radio slot="start" value="whatTime"></ion-radio>
+                <ion-label>Waátai</ion-label>
+                <ion-radio slot="start" value="waatai"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>What is your name?</ion-label>
-                <ion-radio slot="start" value="whatIsYourName"></ion-radio>
+                <ion-label>Kunkuimiach</ion-label>
+                <ion-radio slot="start" value="kunkuimiach"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -96,17 +96,112 @@
         <!-- Pregunta 5 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>5. ¿Cómo se responde a "Gracias"?</ion-card-title>
+            <ion-card-title>5. ¿Cómo se dice "carrito" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta5" name="pregunta5">
               <ion-item>
-                <ion-label>De nada</ion-label>
-                <ion-radio slot="start" value="deNada"></ion-radio>
+                <ion-label>Kunkuimiach</ion-label>
+                <ion-radio slot="start" value="kunkuimiach"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>Por favor</ion-label>
-                <ion-radio slot="start" value="porFavor"></ion-radio>
+                <ion-label>Wea-wea</ion-label>
+                <ion-radio slot="start" value="weawea"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 6 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>6. ¿Cómo se dice "trompo" en Shuar?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta6" name="pregunta6">
+              <ion-item>
+                <ion-label>Wea-wea</ion-label>
+                <ion-radio slot="start" value="weawea"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Sankántiai</ion-label>
+                <ion-radio slot="start" value="sankantiai"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 7 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>7. ¿Cuál de estos juguetes es un "carrito"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta7" name="pregunta7">
+              <ion-item>
+                <ion-label>Kunkuimiach</ion-label>
+                <ion-radio slot="start" value="kunkuimiach"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Waátai</ion-label>
+                <ion-radio slot="start" value="waatai"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 8 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>8. ¿Cuál de estos juguetes es un "rompecabezas"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta8" name="pregunta8">
+              <ion-item>
+                <ion-label>Waátai</ion-label>
+                <ion-radio slot="start" value="waatai"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Yakátai</ion-label>
+                <ion-radio slot="start" value="yakatiai"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 9 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>9. ¿Cuál de estos juguetes es un "Zumbambico"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta9" name="pregunta9">
+              <ion-item>
+                <ion-label>kunkuimiach</ion-label>
+                <ion-radio slot="start" value="kunkuimiach"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>wésham</ion-label>
+                <ion-radio slot="start" value="wesham"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 10 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>10. ¿Cuál de estos juguetes es un "Trompo"?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta10" name="pregunta10">
+              <ion-item>
+                <ion-label>wésham</ion-label>
+                <ion-radio slot="start" value="wesham"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>wea-wea</ion-label>
+                <ion-radio slot="start" value="weawea"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -117,4 +212,13 @@
       </form>
     </ion-card-content>
   </ion-card>
+
+  <!-- Modal para mostrar el puntaje -->
+  <div id="ventanaPuntaje" class="ventana-emergente" [ngClass]="{'mostrar': mostrarVentana}">
+    <div class="contenido-ventana">
+      <h2>Puntaje Final</h2>
+      <p>Tu puntaje es: {{ puntaje }} de 10</p>
+      <ion-button (click)="cerrarVentana()">Cerrar</ion-button>
+    </div>
+  </div>
 </ion-content>
