@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './service/auth.guard';
+import { authGuardAdmin } from './service/authAdmin.guard';
 
 export const routes: Routes = [
   {
@@ -87,43 +88,43 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('./admin/dashboard/dashboard.page').then(m => m.DashboardPage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   },
   {
     path: 'admin/user/profile',
     loadComponent: () => import('./admin/profile/profile.page').then(m => m.ProfilePage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   },
   // Rutas Administradores
   {
     path: 'admins',
     loadComponent: () => import('./admin/admin/admin.page').then(m => m.AdminPage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   },
   {
     path: 'admin/nuevo',
     loadComponent: () => import('./admin/admin-new-edit/admin-new-edit.page').then(m => m.AdminNewEditPage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   },
   {
     path: 'admin/:id',
     loadComponent: () => import('./admin/admin-new-edit/admin-new-edit.page').then(m => m.AdminNewEditPage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   },
   // Rutas de usuarios
   {
     path: 'admin/user/lista',
     loadComponent: () => import('./admin/users-list/users-list.page').then(m => m.UsersListPage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   },
   {
     path: 'admin/user/nuevo',
     loadComponent: () => import('./admin/users-new-edit/users-new-edit.page').then(m => m.UsersNewEditPage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   },
   {
     path: 'admin/user/:id',
     loadComponent: () => import('./admin/users-new-edit/users-new-edit.page').then(m => m.UsersNewEditPage),
-    canActivate: [authGuard]
+    canActivate: [authGuardAdmin]
   }
 ];

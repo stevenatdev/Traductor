@@ -49,7 +49,7 @@ export class RecuperarPasswordPage implements OnInit {
         console.log(data);
         if (data.estado == true) {
           this._adminService.showToast(data.mensaje);
-          this._navCtrl.navigateRoot(['/login']);
+          this._navCtrl.navigateRoot(['/admin/login']);
         } else {
           this._adminService.showToast(data.mensaje);
         }

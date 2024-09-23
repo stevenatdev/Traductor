@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { IonicModule, NavController } from '@ionic/angular';
+import { UsersService } from 'src/app/service/users.service';
 
 @Component({
   selector: 'app-traductor',
@@ -12,7 +13,7 @@ import { IonicModule, NavController } from '@ionic/angular';
 })
 export class TraductorPage implements OnInit {
 
-  constructor(private _navCtrl: NavController) { }
+  constructor(private _navCtrl: NavController, private _usersService: UsersService) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +31,7 @@ export class TraductorPage implements OnInit {
   }
 
   regresar() {
+    this._usersService.closeSession();
     this._navCtrl.navigateRoot(['/home']);
   }
 
