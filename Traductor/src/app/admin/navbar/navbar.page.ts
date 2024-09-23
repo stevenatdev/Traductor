@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
+import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,9 +14,13 @@ import { RouterLink } from '@angular/router';
 })
 export class NavbarPage implements OnInit {
 
-  constructor() { }
+  constructor(private _adminService: AdminService, private _navCtrl: NavController) { }
 
   ngOnInit() {
   }
 
+  salir() {
+    this._adminService.closeSession();
+    this._navCtrl.navigateRoot('/admin/login');
+  }
 }

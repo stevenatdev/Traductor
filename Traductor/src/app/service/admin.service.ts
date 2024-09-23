@@ -48,4 +48,9 @@ export class AdminService {
   async closeSession() {
     await Preferences.clear();
   }
+
+  async isLoggedIn(): Promise<boolean> {
+    const session = await this.getSession('idAdmin'); // Por ejemplo, si guardas un token de autenticación
+    return !!session; // Retorna true si existe sesión, de lo contrario false
+  }
 }
