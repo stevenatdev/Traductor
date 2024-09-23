@@ -104,6 +104,7 @@ if ($post['accion'] == 'getAdmin') {
                 'nombre' => $row['nombre'],
                 'apellido' => $row['apellido'],
                 'correo' => $row['correo'],
+                'telefono' => $row['telefono'],
                 'password' => $row['password']
             );
         }
@@ -172,12 +173,13 @@ if ($post['accion'] == 'registrar') {
 if ($post['accion'] == 'actualizar') {
     $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
     $sql = sprintf(
-        "UPDATE admin SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s' WHERE id = '%s'",
+        "UPDATE admin SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s', telefono = '%s' WHERE id = '%s'",
         $post['cedula'],
         $post['nombre'],
         $post['apellido'],
         $password_encriptada,
         $post['correo'],
+        $post['telefono'],
         $post['id']
     );
     $result = mysqli_query($mysqli, $sql);

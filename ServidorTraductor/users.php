@@ -103,6 +103,7 @@ if ($post['accion'] == 'getUsuario') {
                 'cedula' => $row['cedula'],
                 'nombre' => $row['nombre'],
                 'apellido' => $row['apellido'],
+                'telefono' => $row['telefono'],
                 'correo' => $row['correo'],
                 'password' => $row['password']
             );
@@ -172,12 +173,13 @@ if ($post['accion'] == 'registrar') {
 if ($post['accion'] == 'actualizar') {
     $password_encriptada = password_hash($post['password'], PASSWORD_BCRYPT);
     $sql = sprintf(
-        "UPDATE users SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s' WHERE id = '%s'",
+        "UPDATE users SET cedula = '%s', nombre = '%s', apellido = '%s', password = '%s', correo = '%s', telefono = '%s' WHERE id = '%s'",
         $post['cedula'],
         $post['nombre'],
         $post['apellido'],
         $password_encriptada,
         $post['correo'],
+        $post['telefono'],
         $post['id']
     );
     $result = mysqli_query($mysqli, $sql);
@@ -257,6 +259,17 @@ if ($post['accion'] == 'traducir') {
         $respuesta = json_encode(array('estado' => true, 'textos' => $datos));
     } else {
         $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Esta palabra no existe en la base de datos.'));
+    }
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'guardarPuntaje') {
+    $sql = sprintf("INSERT INTO puntajes (usuario_id, puntaje, desafio) VALUES ('%s','%s','%s')", $post['usuario_id'], $post['puntaje'], $post['desafio']);
+    $result = mysqli_query($mysqli, $sql);
+    if ($result) {
+        $respuesta = json_encode(array('estado' => true, 'mensaje' => 'Puntaje guardado correctamente'));
+    } else {
+        $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Error al guardar puntaje'));
     }
     echo $respuesta;
 }
