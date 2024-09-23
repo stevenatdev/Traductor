@@ -1,17 +1,20 @@
-/* .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .btn {
-    margin-top: 10px;
-  }
-  
-  h1 {
-    text-align: center;
-  } */
+/* Estilos generales para el menú */
+ion-menu {
+  --background: #f9f9f9;
+  --ion-background-color: #ffffff;
+}
+
+ion-toolbar {
+  --background: #4c5baf;
+  --color: #ffffff;
+}
+
+ion-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.icon {
+  color: #ffffff;
+  font-size: 22px;
+}

@@ -240,3 +240,128 @@ function validarCedula($cedula)
 
     return $digito_validador == $ultimo_digito;
 }
+
+if ($post['accion'] == 'reportes_participaciones') {
+    $sql = "SELECT puntajes.id AS id, users.nombre AS usuario, puntaje, desafio, fecha FROM `puntajes` INNER JOIN users ON users.id = puntajes.usuario_id GROUP BY users.nombre";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'id' => $row['id'],
+            'usuario' => $row['usuario'],
+            'puntaje' => $row['puntaje'],
+            'desafio' => $row['desafio'],
+            'fecha' => $row['fecha']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'reportes' => $data));
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'promedio_por_desafio') {
+    $sql = "SELECT desafio, AVG(puntaje) AS promedio_puntaje FROM puntajes GROUP BY desafio";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'desafio' => $row['desafio'],
+            'promedio_puntaje' => $row['promedio_puntaje']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'promedios' => $data));
+    echo $respuesta;
+}
+
+
+if ($post['accion'] == 'total_participaciones') {
+    $sql = "SELECT desafio, COUNT(*) AS total_participaciones FROM puntajes GROUP BY desafio";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'desafio' => $row['desafio'],
+            'total_participaciones' => $row['total_participaciones']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'participaciones' => $data));
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'participaciones') {
+    $sql = "SELECT COUNT(*) AS total_participaciones FROM puntajes";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'participaciones' => $row['total_participaciones']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'participacion' => $data));
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'distribucion_puntajes') {
+    $sql = "SELECT puntaje, COUNT(*) AS cantidad FROM puntajes GROUP BY puntaje ORDER BY puntaje ASC";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'puntaje' => $row['puntaje'],
+            'cantidad' => $row['cantidad']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'distribucion' => $data));
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'mejores_puntajes') {
+    $sql = "SELECT desafio, MAX(puntaje) AS max_puntaje FROM puntajes GROUP BY desafio";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'desafio' => $row['desafio'],
+            'max_puntaje' => $row['max_puntaje']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'mejores' => $data));
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'puntajes_resumen') {
+    $sql = "SELECT desafio, MIN(puntaje) AS puntaje_minimo, MAX(puntaje) AS puntaje_maximo, AVG(puntaje) AS puntaje_promedio FROM puntajes GROUP BY desafio";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'desafio' => $row['desafio'],
+            'puntaje_minimo' => $row['puntaje_minimo'],
+            'puntaje_maximo' => $row['puntaje_maximo'],
+            'puntaje_promedio' => $row['puntaje_promedio']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'resumen' => $data));
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'total_y_puntaje_general') {
+    $sql = "SELECT COUNT(*) AS total_participaciones, SUM(puntaje) AS puntaje_total FROM puntajes";
+    $result = mysqli_query($mysqli, $sql);
+    $data = mysqli_fetch_assoc($result);
+    $respuesta = json_encode(array('estado' => true, 'total_participaciones' => $data['total_participaciones'], 'puntaje_total' => $data['puntaje_total']));
+    echo $respuesta;
+}
+
+if ($post['accion'] == 'participaciones_por_dia') {
+    $sql = "SELECT DATE(fecha) AS dia, COUNT(*) AS participaciones FROM puntajes GROUP BY DATE(fecha) ORDER BY dia ASC";
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'dia' => $row['dia'],
+            'participaciones' => $row['participaciones']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'participaciones' => $data));
+    echo $respuesta;
+}

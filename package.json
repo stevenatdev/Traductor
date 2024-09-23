@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@awesome-cordova-plugins/file": "^6.9.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.3"
+  }
+}

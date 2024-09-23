@@ -1,0 +1,27 @@
+.toy-image {
+    width: 100px; /* Puedes ajustar el tamaño según lo que necesites */
+    height: 100px;
+    object-fit: contain; /* Esto mantiene la proporción de la imagen */
+    margin: auto;
+  }
+
+  /* Estilos generales para el menú */
+ion-menu {
+  --background: #f9f9f9;
+  --ion-background-color: #ffffff;
+}
+
+ion-toolbar {
+  --background: #4c5baf;
+  --color: #ffffff;
+}
+
+ion-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.icon {
+  color: #ffffff;
+  font-size: 22px;
+}
