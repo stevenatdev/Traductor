@@ -16,14 +16,14 @@
       <ion-card-title class="text-center">Evaluación de Saludos</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form>
+      <form (ngSubmit)="enviarRespuestas()">
         <!-- Pregunta 1 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>1. ¿Cómo se dice "Hola" en inglés?</ion-card-title>
+            <ion-card-title>1. ¿Cómo se dice "Hola" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta1" name="pregunta1">
               <ion-item>
                 <ion-label>Hello</ion-label>
                 <ion-radio slot="start" value="hello"></ion-radio>
@@ -42,7 +42,7 @@
             <ion-card-title>2. ¿Cómo respondes a "¿Cómo estás?"?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta2" name="pregunta2">
               <ion-item>
                 <ion-label>Bien, gracias</ion-label>
                 <ion-radio slot="start" value="bien"></ion-radio>
@@ -61,7 +61,7 @@
             <ion-card-title>3. Completa la frase: "Buenos ____".</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta3" name="pregunta3">
               <ion-item>
                 <ion-label>Días</ion-label>
                 <ion-radio slot="start" value="dias"></ion-radio>
@@ -77,10 +77,10 @@
         <!-- Pregunta 4 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>4. ¿Qué significa "Adiós" en inglés?</ion-card-title>
+            <ion-card-title>4. ¿Qué significa "Adiós" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta4" name="pregunta4">
               <ion-item>
                 <ion-label>Goodbye</ion-label>
                 <ion-radio slot="start" value="goodbye"></ion-radio>
@@ -96,10 +96,10 @@
         <!-- Pregunta 5 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>5. ¿Cómo se dice "Buenas noches" en inglés?</ion-card-title>
+            <ion-card-title>5. ¿Cómo se dice "Buenas noches" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta5" name="pregunta5">
               <ion-item>
                 <ion-label>Goodnight</ion-label>
                 <ion-radio slot="start" value="goodnight"></ion-radio>
@@ -118,7 +118,7 @@
             <ion-card-title>6. Completa la frase: "Buenas ____".</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta6" name="pregunta6">
               <ion-item>
                 <ion-label>Tardes</ion-label>
                 <ion-radio slot="start" value="tardes"></ion-radio>
@@ -134,10 +134,10 @@
         <!-- Pregunta 7 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>7. ¿Cómo se despide una persona en español formalmente?</ion-card-title>
+            <ion-card-title>7. ¿Cómo se despide una persona en shuar formalmente?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta7" name="pregunta7">
               <ion-item>
                 <ion-label>Hasta luego</ion-label>
                 <ion-radio slot="start" value="hastaluego"></ion-radio>
@@ -156,7 +156,7 @@
             <ion-card-title>8. ¿Cómo preguntas a alguien "¿Qué tal?"?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta8" name="pregunta8">
               <ion-item>
                 <ion-label>¿Qué tal?</ion-label>
                 <ion-radio slot="start" value="quetal"></ion-radio>
@@ -172,10 +172,10 @@
         <!-- Pregunta 9 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>9. ¿Cómo se dice "Hasta pronto" en inglés?</ion-card-title>
+            <ion-card-title>9. ¿Cómo se dice "Hasta pronto" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta9" name="pregunta9">
               <ion-item>
                 <ion-label>See you soon</ion-label>
                 <ion-radio slot="start" value="seeYouSoon"></ion-radio>
@@ -191,10 +191,10 @@
         <!-- Pregunta 10 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>10. ¿Cómo se dice "Hola, ¿cómo te llamas?" en inglés?</ion-card-title>
+            <ion-card-title>10. ¿Cómo se dice "Hola, ¿cómo te llamas?" en shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta10" name="pregunta10">
               <ion-item>
                 <ion-label>Hello, what's your name?</ion-label>
                 <ion-radio slot="start" value="helloName"></ion-radio>
@@ -208,8 +208,16 @@
         </ion-card>
 
         <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
-        <ion-button expand="full" routerLink="/desafio1" color="light" class="mt-2">Regresar al Desafío 1</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
+
+  <!-- Modal para mostrar el puntaje -->
+  <div id="ventanaPuntaje" class="ventana-emergente" [ngClass]="{'mostrar': mostrarVentana}">
+    <div class="contenido-ventana">
+      <h2>Puntaje Final</h2>
+      <p>Tu puntaje es: {{ puntaje }} de 10</p>
+      <ion-button (click)="cerrarVentana()">Cerrar</ion-button>
+    </div>
+  </div>
 </ion-content>

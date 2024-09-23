@@ -6,31 +6,31 @@
         Regresar
       </ion-button>
     </ion-buttons>
-    <ion-title>Desafío 3: Vocabulario Esencial - Evaluación</ion-title>
+    <ion-title>Desafío 3: Vocabulario de la Familia</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title class="text-center">Evaluación de Vocabulario Esencial</ion-card-title>
+      <ion-card-title class="text-center">Evaluación de Vocabulario de la Familia</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form>
+      <form (ngSubmit)="enviarRespuestas()">
         <!-- Pregunta 1 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>1. ¿Cómo se dice "Casa" en inglés?</ion-card-title>
+            <ion-card-title>1. ¿Cómo se dice "padre" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta1" name="pregunta1">
               <ion-item>
-                <ion-label>House</ion-label>
-                <ion-radio slot="start" value="house"></ion-radio>
+                <ion-label>Apa</ion-label>
+                <ion-radio slot="start" value="apa"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>Home</ion-label>
-                <ion-radio slot="start" value="home"></ion-radio>
+                <ion-label>Nuku</ion-label>
+                <ion-radio slot="start" value="nuku"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -39,17 +39,17 @@
         <!-- Pregunta 2 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>2. ¿Cómo se dice "Perro" en inglés?</ion-card-title>
+            <ion-card-title>2. ¿Cómo se dice "madre" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta2" name="pregunta2">
               <ion-item>
-                <ion-label>Dog</ion-label>
-                <ion-radio slot="start" value="dog"></ion-radio>
+                <ion-label>Nuku</ion-label>
+                <ion-radio slot="start" value="nuku"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>Cat</ion-label>
-                <ion-radio slot="start" value="cat"></ion-radio>
+                <ion-label>Uchi</ion-label>
+                <ion-radio slot="start" value="uchi"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -58,17 +58,17 @@
         <!-- Pregunta 3 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>3. ¿Cómo se dice "Libro" en inglés?</ion-card-title>
+            <ion-card-title>3. ¿Cómo se dice "nieto" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta3" name="pregunta3">
               <ion-item>
-                <ion-label>Book</ion-label>
-                <ion-radio slot="start" value="book"></ion-radio>
+                <ion-label>Nawánt</ion-label>
+                <ion-radio slot="start" value="nawant"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>Magazine</ion-label>
-                <ion-radio slot="start" value="magazine"></ion-radio>
+                <ion-label>Tírank</ion-label>
+                <ion-radio slot="start" value="tirank"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -77,17 +77,17 @@
         <!-- Pregunta 4 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>4. ¿Cómo se dice "Comida" en inglés?</ion-card-title>
+            <ion-card-title>4. ¿Cómo se dice "abuela" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta4" name="pregunta4">
               <ion-item>
-                <ion-label>Food</ion-label>
-                <ion-radio slot="start" value="food"></ion-radio>
+                <ion-label>Nukuchích’</ion-label>
+                <ion-radio slot="start" value="nukuchich"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>Drink</ion-label>
-                <ion-radio slot="start" value="drink"></ion-radio>
+                <ion-label>Apachich’</ion-label>
+                <ion-radio slot="start" value="apachich"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -96,25 +96,128 @@
         <!-- Pregunta 5 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>5. ¿Cómo se dice "Silla" en inglés?</ion-card-title>
+            <ion-card-title>5. ¿Cómo se dice "primo" en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta5" name="pregunta5">
               <ion-item>
-                <ion-label>Chair</ion-label>
-                <ion-radio slot="start" value="chair"></ion-radio>
+                <ion-label>Kaná kair</ion-label>
+                <ion-radio slot="start" value="kana_kair"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>Table</ion-label>
-                <ion-radio slot="start" value="table"></ion-radio>
+                <ion-label>Kaná umar</ion-label>
+                <ion-radio slot="start" value="kana_umar"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 6 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>6. ¿Cómo se dice "hierno" en Shuar?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta6" name="pregunta6">
+              <ion-item>
+                <ion-label>Kaná kair</ion-label>
+                <ion-radio slot="start" value="kana_kair"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Awer</ion-label>
+                <ion-radio slot="start" value="awer"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 7 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>7. ¿Cómo se dice "cuñado" en Shuar?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta7" name="pregunta7">
+              <ion-item>
+                <ion-label>Wajér</ion-label>
+                <ion-radio slot="start" value="wajer"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Nukuchích’</ion-label>
+                <ion-radio slot="start" value="nukuchich"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 8 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>8. ¿Cómo se dice "cuñada" en Shuar?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta8" name="pregunta8">
+              <ion-item>
+                <ion-label>Nawánt</ion-label>
+                <ion-radio slot="start" value="nawant"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Yuar</ion-label>
+                <ion-radio slot="start" value="yuar"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 9 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>9. ¿Cómo se dice "prima" en Shuar?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta9" name="pregunta9">
+              <ion-item>
+                <ion-label>Kaná kair</ion-label>
+                <ion-radio slot="start" value="kana_kair"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Tírank</ion-label>
+                <ion-radio slot="start" value="tirank"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 10 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>10. ¿Cómo se dice "sobrino" en Shuar?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta10" name="pregunta10">
+              <ion-item>
+                <ion-label>Awer</ion-label>
+                <ion-radio slot="start" value="awer"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Kaná kair</ion-label>
+                <ion-radio slot="start" value="kana_kair"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
         </ion-card>
 
         <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
-        <ion-button expand="full" routerLink="/desafio3" color="light" class="mt-2">Regresar al Desafío 3</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
+
+  <!-- Modal para mostrar el puntaje -->
+  <div id="ventanaPuntaje" class="ventana-emergente" [ngClass]="{'mostrar': mostrarVentana}">
+    <div class="contenido-ventana">
+      <h2>Puntaje Final</h2>
+      <p>Tu puntaje es: {{ puntaje }} de 10</p>
+      <ion-button (click)="cerrarVentana()">Cerrar</ion-button>
+    </div>
+  </div>
 </ion-content>

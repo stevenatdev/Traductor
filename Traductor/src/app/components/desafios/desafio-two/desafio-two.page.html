@@ -6,31 +6,31 @@
         Regresar
       </ion-button>
     </ion-buttons>
-    <ion-title>Desafío 2: Gramática Básica</ion-title>
+    <ion-title>Desafío 2: Animales</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-title class="text-center">Evaluación de Gramática Básica</ion-card-title>
+      <ion-card-title class="text-center">Evaluación sobre Animales</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <form>
+      <form (ngSubmit)="enviarRespuestas()">
         <!-- Pregunta 1 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>1. ¿Cuál es el artículo definido para "niño"?</ion-card-title>
+            <ion-card-title>1. ¿Cuál de los siguientes animales es un mamífero en Shuar?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta1" name="pregunta1">
               <ion-item>
-                <ion-label>El</ion-label>
-                <ion-radio slot="start" value="el"></ion-radio>
+                <ion-label>Uunt yawá</ion-label>
+                <ion-radio slot="start" value="uunt_yawá"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>La</ion-label>
-                <ion-radio slot="start" value="la"></ion-radio>
+                <ion-label>´Kawá</ion-label>
+                <ion-radio slot="start" value="kawá"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -39,17 +39,17 @@
         <!-- Pregunta 2 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>2. ¿Cuál es el artículo definido para "niña"?</ion-card-title>
+            <ion-card-title>2. ¿Cuál de los siguientes animales es un animal doméstico?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta2" name="pregunta2">
               <ion-item>
-                <ion-label>El</ion-label>
-                <ion-radio slot="start" value="el"></ion-radio>
+                <ion-label>Chaí</ion-label>
+                <ion-radio slot="start" value="chai"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>La</ion-label>
-                <ion-radio slot="start" value="la"></ion-radio>
+                <ion-label>Yawá</ion-label>
+                <ion-radio slot="start" value="yawá"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -58,17 +58,17 @@
         <!-- Pregunta 3 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>3. Completa la frase: "El ____ come".</ion-card-title>
+            <ion-card-title>3. ¿Cuál de los siguientes animales vuela?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta3" name="pregunta3">
               <ion-item>
-                <ion-label>niño</ion-label>
-                <ion-radio slot="start" value="nino"></ion-radio>
+                <ion-label>Ámpush</ion-label>
+                <ion-radio slot="start" value="ampush"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>niña</ion-label>
-                <ion-radio slot="start" value="nina"></ion-radio>
+                <ion-label>Katíp</ion-label>
+                <ion-radio slot="start" value="katip"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -77,17 +77,17 @@
         <!-- Pregunta 4 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>4. ¿Cuál es el verbo correcto en la frase "Yo ____ español"?</ion-card-title>
+            <ion-card-title>4. ¿Cuál de los siguientes animales se mueve muy lento?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta4" name="pregunta4">
               <ion-item>
-                <ion-label>hablo</ion-label>
-                <ion-radio slot="start" value="hablo"></ion-radio>
+                <ion-label>Yantána</ion-label>
+                <ion-radio slot="start" value="yantana"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>corro</ion-label>
-                <ion-radio slot="start" value="corro"></ion-radio>
+                <ion-label>Uyúsh</ion-label>
+                <ion-radio slot="start" value="uyush"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
@@ -96,25 +96,130 @@
         <!-- Pregunta 5 -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>5. ¿Cuál es el verbo correcto en la frase "Tú ____ rápido"?</ion-card-title>
+            <ion-card-title>5. ¿Cuál de estos animales es conocido por tener muchas espinas?</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-radio-group>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta5" name="pregunta5">
               <ion-item>
-                <ion-label>corres</ion-label>
-                <ion-radio slot="start" value="corres"></ion-radio>
+                <ion-label>Kúru</ion-label>
+                <ion-radio slot="start" value="kuru"></ion-radio>
               </ion-item>
               <ion-item>
-                <ion-label>hablas</ion-label>
-                <ion-radio slot="start" value="hablas"></ion-radio>
+                <ion-label>Kúshi</ion-label>
+                <ion-radio slot="start" value="kushi"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 6 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>6. ¿Cuál de los siguientes es un animal herbívoro?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta6" name="pregunta6">
+              <ion-item>
+                <ion-label>Jápa</ion-label>
+                <ion-radio slot="start" value="japa"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Chaí</ion-label>
+                <ion-radio slot="start" value="chai"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 7 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>7. ¿Cuál de estos animales es conocido por su fuerza y tamaño?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta7" name="pregunta7">
+              <ion-item>
+                <ion-label>Waaka aíshmank</ion-label>
+                <ion-radio slot="start" value="waaka"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Kawai</ion-label>
+                <ion-radio slot="start" value="kawai"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 8 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>8. ¿Qué animal es conocido por ser una fuente común de carne en las
+              festividades?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta8" name="pregunta8">
+              <ion-item>
+                <ion-label>Shiampach</ion-label>
+                <ion-radio slot="start" value="shiampach"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Paapu</ion-label>
+                <ion-radio slot="start" value="paapu"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 9 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>9. ¿Cuál de estos animales es conocido por ser un buen compañero de trabajo en el
+              campo?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta9" name="pregunta9">
+              <ion-item>
+                <ion-label>Kawai</ion-label>
+                <ion-radio slot="start" value="kawai"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Waaka aíshmank</ion-label>
+                <ion-radio slot="start" value="waaka"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-card-content>
+        </ion-card>
+
+        <!-- Pregunta 10 -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>10. ¿Qué animal se asocia frecuentemente con la producción de huevos?</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-radio-group [(ngModel)]="respuestas.pregunta10" name="pregunta10">
+              <ion-item>
+                <ion-label>Shiampach</ion-label>
+                <ion-radio slot="start" value="shiampach"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Paapu</ion-label>
+                <ion-radio slot="start" value="paapu"></ion-radio>
               </ion-item>
             </ion-radio-group>
           </ion-card-content>
         </ion-card>
 
         <ion-button expand="full" type="submit">Enviar Respuestas</ion-button>
-        <ion-button expand="full" routerLink="/desafio2" color="light" class="mt-2">Regresar al Desafío 2</ion-button>
       </form>
     </ion-card-content>
   </ion-card>
+
+  <!-- Modal para mostrar el puntaje -->
+  <div id="ventanaPuntaje" class="ventana-emergente" [ngClass]="{'mostrar': mostrarVentana}">
+    <div class="contenido-ventana">
+      <h2>Puntaje Final</h2>
+      <p>Tu puntaje es: {{ puntaje }} de 10</p>
+      <ion-button (click)="cerrarVentana()">Cerrar</ion-button>
+    </div>
+  </div>
 </ion-content>
