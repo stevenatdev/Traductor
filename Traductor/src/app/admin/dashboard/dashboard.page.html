@@ -8,60 +8,107 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> <ion-header collapse="condense">
+  <ion-content class="ion-padding">
+    <ion-header collapse="condense">
       <ion-toolbar>
         <ion-title size="large">Dashboard</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <!-- Contenido principal del Dashboard -->
-    <ion-grid>
-      <ion-row>
-        <!-- Tarjeta de Administradores Totales -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Admins</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              @for (admin of admins; track $index) {
-              <h2>{{ admin.total_admins }}</h2>
-              }
-              <p>Administradores registrados actualmente</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
+    <div class="dashboard-container">
+      <!-- Tarjetas de estadísticas -->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6" class="dashboard-card">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Admins</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                @for (admin of admins; track $index) {
+                <h2><b>Administradores:</b> {{ admin.total_admins }}</h2>
+                }
+                <p>Administradores registrados actualmente</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
 
-        <!-- Tarjeta de Usuarios Activos -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Usuarios</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              @for (user of usuarios; track $index) {
-              <h2>{{ user.total_users }}</h2>
-              }
-              <p>Usuarios registrados actualmente</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
+          <ion-col size="12" size-md="6" class="dashboard-card">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Usuarios</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                @for (user of usuarios; track $index) {
+                <h2><b>Usuarios:</b> {{ user.total_users }}</h2>
+                }
+                <p>Usuarios registrados actualmente</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
 
-      <ion-row>
-        <!-- Tarjeta de Palabras más Traducidas -->
-        <ion-col size="6">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Palabras Más Traducidas</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <h2>Wai</h2> <!-- Aquí puedes mostrar la palabra más traducida -->
-              <p>Esta palabra ha sido traducida 250 veces</p>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
+        <ion-row>
+          <ion-col size="12" size-md="6" class="dashboard-card">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Participaciones</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                @for (partipante of participacion; track $index) {
+                <h2><b>Participaciones:</b> {{ partipante.participaciones }}</h2>
+                }
+                <p>Total de participaciones por desafío.</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
 
-    </ion-grid></ion-content>
+          <ion-col size="12" size-md="6" class="dashboard-card">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>Participaciones por día</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                @for (dia of participacionesPorDia; track $index) {
+                <h2><b>Participaciones:</b> {{ dia.participaciones }}</h2>
+                <h2><b>Día:</b> {{ dia.dia }}</h2>
+                }
+                <p>Total de participaciones por día.</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Gráficos -->
+      <div class="charts-section">
+        <h3>Gráficos de Participaciones</h3>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="myChartTotal"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="myChartParticipacionesPorDia"></canvas>
+        </div>
+        <div class="chart-container">
+          <h4>Participaciones por Desafío</h4> <br>
+          <canvas id="myChartParticipaciones"></canvas>
+        </div>
+        <div class="chart-container">
+          <h4>Distribución de Puntajes</h4> <br>
+          <canvas id="myChartDistribucion"></canvas>
+        </div>
+        <div class="chart-container">
+          <h4>Mejores Puntajes por Desafío</h4> <br>
+          <canvas id="myChartMejores"></canvas>
+        </div>
+        <div class="chart-container">
+          <h4>Resumen de Puntajes por Desafío</h4> <br>
+          <canvas id="myChartResumen"></canvas>
+        </div>
+      </div>
+    </div>
+  </ion-content>
 </div>
