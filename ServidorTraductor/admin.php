@@ -117,11 +117,11 @@ if ($post['accion'] == 'getAdmin') {
 
 if ($post['accion'] == 'registrar') {
     // Verificamos si la cédula es válida
-    /* if (!validarCedula($post['cedula'])) {
+    if (!validarCedula($post['cedula'])) {
         $respuesta = json_encode(array('estado' => false, 'mensaje' => 'Cédula no válida'));
         echo $respuesta;
         exit;
-    } */
+    }
 
     // Verificamos si la cédula ya existe en la base de datos
     $consultar_cedula = sprintf("SELECT * FROM admin WHERE cedula = '%s'", $post['cedula']);
