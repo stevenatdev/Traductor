@@ -273,3 +273,17 @@ if ($post['accion'] == 'guardarPuntaje') {
     }
     echo $respuesta;
 }
+
+if ($post['accion'] == 'puntaje') {
+    $sql = sprintf("SELECT desafio, AVG(puntaje) AS promedio_puntaje FROM puntajes WHERE usuario_id = '%s' GROUP BY desafio", $post['usuario_id']);
+    $result = mysqli_query($mysqli, $sql);
+    $data = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data[] = array(
+            'desafio' => $row['desafio'],
+            'promedio_puntaje' => $row['promedio_puntaje']
+        );
+    }
+    $respuesta = json_encode(array('estado' => true, 'puntaje' => $data));
+    echo $respuesta;
+}
