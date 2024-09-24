@@ -220,7 +220,7 @@ export class DashboardPage implements OnInit {
     const ctx = canvas?.getContext('2d');
 
     if (ctx) {
-      const labels = this.distribucion.map(item => item.puntaje);
+      const labels = this.distribucion.map(item => `Puntaje ${item.puntaje}`);
       const data = this.distribucion.map(item => item.cantidad);
 
       this.myChartDistribucion = new Chart<'pie'>(ctx, {

@@ -22,8 +22,8 @@ export class TraductorPage implements OnInit {
     this._navCtrl.navigateRoot(['/aprender']);
   }
 
-  sonidos() {
-    this._navCtrl.navigateRoot(['/sonidos']);
+  puntaje() {
+    this._navCtrl.navigateRoot(['/puntaje']);
   }
 
   desafios() {

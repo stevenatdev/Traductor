@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Mi Puntaje</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <i class='bx bx-log-out-circle icon'></i>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="charts-section">
+    <h3>Reporte de tus Puntajes</h3>
+    <div class="chart-container">
+      <h4>Mis Puntajes por Desafío</h4>
+      <canvas id="myChartPuntaje"></canvas>
+    </div>
+  </div>
+</ion-content>

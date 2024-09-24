@@ -45,8 +45,8 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: 'sonidos',
-    loadComponent: () => import('./components/sonidos/sonidos.page').then(m => m.SonidosPage),
+    path: 'puntaje',
+    loadComponent: () => import('./components/puntaje/puntaje.page').then(m => m.PuntajePage),
     canActivate: [authGuard]
   },
   // Desafios
